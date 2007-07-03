@@ -24,5 +24,7 @@ namespace :svn do
   task :remove do
     system "svn status | grep '^\!' | sed -e 's/! *//' | sed -e 's/ /\ /g' | xargs svn rm"
   end
+  
+  task :rm => :remove
 
 end
