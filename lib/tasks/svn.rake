@@ -19,5 +19,10 @@ namespace :svn do
   task :add do
     system "svn status | grep '^\?' | sed -e 's/? *//' | sed -e 's/ /\ /g' | xargs svn add"
   end
+  
+  desc "Removes all files with an svn status flag of '!'" 
+  task :remove do
+    system "svn status | grep '^\!' | sed -e 's/! *//' | sed -e 's/ /\ /g' | xargs svn rm"
+  end
 
 end
