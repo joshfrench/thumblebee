@@ -3,8 +3,39 @@ require File.dirname(__FILE__) + '/../test_helper'
 class EventTest < Test::Unit::TestCase
   fixtures :events
 
-  # Replace this with your real tests.
-  def test_truth
-    assert true
+  def test_should_create
+    assert_difference Event, :count do
+      create_event
+    end
+  end
+
+  def test_should_require_name
+    assert !(create_event :name => nil).valid?
+  end
+  
+  def test_should_require_slug
+    assert !(create_event :slug => nil).valid?
+  end
+  
+  def test_should_require_starting_date
+    assert !(create_event :starts_on => nil).valid?
+  end
+  
+  def test_should_require_contact
+    assert !(create_event :contact => nil).valid?
+  end
+  
+  def test_should_require_valid_email
+    assert !(create_event :email => nil).valid?
+    assert !(create_event :email => 'josh at vitamin-j.com').valid?
+    assert !(create_event :email => 'josh@vitamin-j').valid?
+  end
+  
+  private
+  def create_event(options={})
+    Event.create({:name => "Sample Event", :slug => "samplevent",
+                  :starts_on => (1.week.from_now.to_s :db),
+                  :contact => 'Joey Sample', :email => 'jsample@vitamin-j.com' }.merge options)
+                
   end
 end
