@@ -31,11 +31,16 @@ class EventTest < Test::Unit::TestCase
     assert !(create_event :email => 'josh@vitamin-j').valid?
   end
   
+  def test_should_require_location
+    assert !(create_event :location => nil).valid?
+  end
+  
   private
   def create_event(options={})
     Event.create({:name => "Sample Event", :slug => "samplevent",
                   :starts_on => (1.week.from_now.to_s :db),
-                  :contact => 'Joey Sample', :email => 'jsample@vitamin-j.com' }.merge options)
+                  :contact => 'Joey Sample', :email => 'jsample@vitamin-j.com',
+                  :location => 'Ithaca, NY' }.merge options)
                 
   end
 end
