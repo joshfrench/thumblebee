@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   
   def new
     @event = Event.new
-    @event.starts_on = Time.now
+    @event.starts_on = Date.new
   end
   
   def create
@@ -14,6 +14,8 @@ class EventsController < ApplicationController
   
   def show
     @event = Event.find_by_slug(params[:id])
+    @ride = Ride.new
+    @ride.leave_at = @event.starts_on.to_s
   end
   
 end

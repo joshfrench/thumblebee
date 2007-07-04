@@ -1,0 +1,11 @@
+<h2><%= @event.name %></h2>
+<p><%= @event.starts_on.to_s %>, <%= @event.location %></p>
+
+<p><%= pluralize @event.rides.count, "ride" %> available.</p>
+
+<h3>Add a ride:</h3>
+<% form_for @ride, :url => rides_path(@event) do |f| %>
+  <%= render :partial => "rides/form", :locals => { :f => f } %>
+<% end %>
+
+<%= error_messages_for :ride %>

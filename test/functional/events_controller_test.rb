@@ -35,6 +35,6 @@ class EventsControllerTest < Test::Unit::TestCase
   def test_new
     get :new
     assert assigns["event"].new_record?
-    assert_equal Time.now.to_s, assigns["event"].starts_on.to_s
+    assert_equal Date.new.to_s, assigns["event"].starts_on.to_s
   end
 end
