@@ -42,6 +42,14 @@ class EventTest < Test::Unit::TestCase
     assert_equal @event.to_param, slug
   end
   
+  def test_available_rides
+    @full_ride = Ride.new(:seats => 0)
+    @available_ride = Ride.new(:seats => 2)
+    @event = Event.new
+    @event.expects(:rides).returns([@full_ride, @available_ride])
+    assert @event.available_rides.include?(@available_ride)
+  end
+  
   private
   def create_event(options={})
     Event.create({:name => "Sample Event", :slug => "samplevent",

@@ -2,8 +2,9 @@
 <p>Your email: <%= f.text_field :email %></p>
 <p>Your phone: <%= f.text_field :phone %></p>
 <p>Leaving from: <%= f.text_field :location %></p>
-<p>Leaving at: <%= f.text_field :leave_at %></p>
-<p>Returning at: <%= f.text_field :return_at %></p>
-<p>Seats available: <%= f.select :seats, (1..6).to_a %></p>
-<p>Anything else? <%= f.text_area :comment %></p>
-<%= submit_tag %>
+<p>Leaving at: <%= f.calendar_date_select :leave_at, :time => true,
+                                          :year_range => 1 %></p>
+<p>Returning at: <%= f.calendar_date_select :return_at, :time => true,
+                                            :year_range => 1 %></p>
+<p>Seats available: <%= f.select :seats, (1..6).to_a, :selected => 3 %></p>
+<%= submit_tag "Add ride" %>

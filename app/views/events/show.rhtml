@@ -9,3 +9,5 @@
 <% end %>
 
 <%= error_messages_for :ride %>
+
+<%= render :partial => "rides/ride", :collection => @event.available_rides %>
