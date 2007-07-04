@@ -35,6 +35,13 @@ class EventTest < Test::Unit::TestCase
     assert !(create_event :location => nil).valid?
   end
   
+  def test_should_use_slug_as_param
+    slug = 'thisisasampleslug'
+    @event = Event.new
+    @event.slug = slug
+    assert_equal @event.to_param, slug
+  end
+  
   private
   def create_event(options={})
     Event.create({:name => "Sample Event", :slug => "samplevent",

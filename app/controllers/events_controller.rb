@@ -7,13 +7,13 @@ class EventsController < ApplicationController
   
   def create
     @event = Event.create(params[:event])
-    redirect_to event_path(@event)
+    redirect_to @event
   rescue
     render :action => :new
   end
   
   def show
-    @event = Event.find(params[:id])
+    @event = Event.find_by_slug(params[:id])
   end
   
 end
