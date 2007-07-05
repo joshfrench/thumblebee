@@ -1,3 +1,3 @@
 <p>Leaving from <%= h ride.location %> on <%= h ride.leave_at %>. <%= pluralize ride.seats, "seat" %> open.<br/>
-Who's driving? <%= mail_to ride.email, h(ride.driver) %><%= " (#{h ride.phone})" unless ride.phone.strip.empty? %><br/>
+Who's driving? <%= mail_to ride.email, h(ride.driver) %><%= " (#{h ride.phone})" unless (ride.phone.nil? || ride.phone.strip.empty?) %><br/>
 Returning: <%= h ride.return_at %>.</p>

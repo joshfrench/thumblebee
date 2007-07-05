@@ -24,6 +24,17 @@ class EventsControllerTest < Test::Unit::TestCase
     assert_redirected_to event_path(Event.find_by_slug('sampleevent'))
   end
   
+  def test_catch_bad_event
+    post :create, :event => { :name => nil,
+                              :slug => 'sampleevent',
+                              :location => 'Ithaca, NY',
+                              :starts_on => 1.week.from_now.to_s,
+                              :contact => 'Josh French',
+                              :email => 'josh@vitamin-j.com' }
+    assert_response :success
+    assert_template 'new'
+  end
+  
   def test_show
     @event = Event.new(:starts_on => Date.today)
     Event.expects(:find_by_slug).with('sample').returns(@event)

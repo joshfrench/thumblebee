@@ -5,7 +5,7 @@ require 'rides_controller'
 class RidesController; def rescue_action(e) raise e end; end
 
 class RidesControllerTest < Test::Unit::TestCase
-  fixtures :rides
+  fixtures :rides, :events
 
   def setup
     @controller = RidesController.new
@@ -14,9 +14,7 @@ class RidesControllerTest < Test::Unit::TestCase
   end
 
   def test_create
-    @event = Event.new(:name => 'Sample Event', :slug => 'sampleevent')
-    Event.expects(:find_by_slug).with('sampleevent').returns(@event)
-    
+    @event = events(:one)
     assert_difference @event.rides, :size do
       post :create, { :event_id => 'sampleevent', 
                       :ride => { :driver => "Joe Driver", 
@@ -24,9 +22,24 @@ class RidesControllerTest < Test::Unit::TestCase
                                 :location => "Brooklyn",
                                 :leave_at => "July 26, noon",
                                 :return_at => "July 28, noon",
-                                :seats => "3" } }             
+                                :seats => "3",
+                                :event_id => events(:one).slug } }             
     end
             
     assert_redirected_to event_path(@event)
   end
+  
+  def test_show
+    get :show, { :event_id => rides(:one).event.slug, :id => rides(:one).auth }
+    assert_equal rides(:one), assigns["ride"]
+  end
+  
+  def test_update
+    @ride = rides(:one)
+    put :update, { :event_id => @ride.event.slug, :id => @ride.auth,
+                   :ride => { :driver => 'New Name', :email => 'newemail@vitamin-j.com', :seats => 1,
+                              :location => "Brooklyn", :leave_at => 'now', :return_at => 'later' } }
+    assert_equal 'New Name', @ride.reload.driver
+  end
+  
 end

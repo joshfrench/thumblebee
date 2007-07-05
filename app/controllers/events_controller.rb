@@ -6,7 +6,8 @@ class EventsController < ApplicationController
   end
   
   def create
-    @event = Event.create(params[:event])
+    @event = Event.new(params[:event])
+    @event.save!
     redirect_to @event
   rescue
     render :action => :new

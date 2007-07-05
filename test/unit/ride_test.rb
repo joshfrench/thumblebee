@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class RideTest < Test::Unit::TestCase
-  fixtures :rides
+  fixtures :rides, :events
 
   def test_should_create
     assert_difference Ride, :count do
@@ -38,8 +38,8 @@ class RideTest < Test::Unit::TestCase
   
   private
   def create_ride(options={})
-    Ride.create({:driver => 'Joey Driver', :email => 'driver@vitamin-j.com',
+    events(:one).rides.create({:driver => 'Joey Driver', :email => 'driver@vitamin-j.com',
                  :location => "Brooklyn", :leave_at => "Saturday around noon",
-                 :return_at => "Sunday evening", :seats => 4, :event_id => 1 }.merge options )
+                 :return_at => "Sunday evening", :seats => 4 }.merge options )
   end
 end
