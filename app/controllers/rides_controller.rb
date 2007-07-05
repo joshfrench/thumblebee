@@ -9,4 +9,18 @@ class RidesController < ApplicationController
     render :template => "events/show"
   end
   
+  def show
+    @ride = Ride.find_by_auth(params[:id])
+  end
+  
+  def update
+    @ride = Ride.find_by_auth(params[:id])
+    @ride.update_attributes(params[:ride])
+    @ride.save!
+    flash[:message] = "Your changes have been saved." 
+    redirect_to event_path(@ride.event)
+  rescue
+    render :action => :show
+  end
+  
 end

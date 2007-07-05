@@ -43,7 +43,7 @@ module CalendarDateSelect
       
       calendar_options = calendar_date_select_process_options(options)
       
-      value = obj.send(method).strftime(options[:format]) rescue ""
+      value = obj.send(method).strftime(options[:format]) rescue obj.send(method)
       
       options.delete(:format)
       

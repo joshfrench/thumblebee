@@ -1,0 +1,7 @@
+<h3>Add a ride:</h3>
+<% form_for @ride, :url => ride_path(:id => @ride.auth) do |f| %>
+  <%= render :partial => "rides/form", :locals => { :f => f } %>
+  <%= submit_tag "Save changes" %>
+<% end %>
+
+<%= error_messages_for :ride %>

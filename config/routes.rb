@@ -1,10 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
 
   map.resources :events do |event|
-    event.resources :rides do |ride|
-      ride.resources :requests
-    end
+    event.resources :rides, :path_prefix => ':event_id'
   end
+  
+  map.default ':id', :controller => 'events', :action => 'show'
 
   # The priority is based upon order of creation: first created -> highest priority.
   
