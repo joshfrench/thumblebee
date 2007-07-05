@@ -18,6 +18,7 @@ class EventsController < ApplicationController
     @ride = Ride.new
     @ride.leave_at = @event.starts_on
     @ride.return_at = @event.starts_on + 1
+    @ride.seats = 3
   end
   
 end

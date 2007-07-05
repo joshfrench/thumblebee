@@ -4,7 +4,7 @@ class RidesController < ApplicationController
     @event = Event.find_by_slug(params[:event_id])
     @ride = @event.rides.build(params[:ride])
     @ride.save!
-    redirect_to event_path(@event)
+    redirect_to default_path(@event)
   rescue
     render :template => "events/show"
   end
@@ -18,7 +18,7 @@ class RidesController < ApplicationController
     @ride.update_attributes(params[:ride])
     @ride.save!
     flash[:message] = "Your changes have been saved." 
-    redirect_to event_path(@ride.event)
+    redirect_to default_path(@ride.event)
   rescue
     render :action => :show
   end
