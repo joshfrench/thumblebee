@@ -1,0 +1,17 @@
+Hi <%= h @ride.driver %>
+
+You have posted a ride with the following information:
+
+Available seats: <%= @ride.seats %>
+Departing from: <%= h @ride.location %>
+Leaving: <%= h @ride.leave_at %>
+Returning: <%= h @ride.return_at %>
+
+To edit this information or update your available seats, use the
+following link. Please save this link, it is the only way to modify your
+post.
+
+<%= ride_url(:event_id => @ride.event.slug, :id => @ride.auth) %>
+
+Thanks again,
+<%= h @ride.event.contact %>

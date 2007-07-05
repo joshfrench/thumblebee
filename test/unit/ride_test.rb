@@ -40,6 +40,6 @@ class RideTest < Test::Unit::TestCase
   def create_ride(options={})
     Ride.create({:driver => 'Joey Driver', :email => 'driver@vitamin-j.com',
                  :location => "Brooklyn", :leave_at => "Saturday around noon",
-                 :return_at => "Sunday evening", :seats => 4 }.merge options )
+                 :return_at => "Sunday evening", :seats => 4, :event_id => 1 }.merge options )
   end
 end

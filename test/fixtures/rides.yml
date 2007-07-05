@@ -1,5 +1,13 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 one:
   id: 1
+  event_id: 1
+  driver: Josh French
+  email: josh@vitamin-j.com
+  seats: 3
+  location: Brooklyn
+  leave_at: Saturday morning
+  return_at: Sunday afternoon
+  auth: AAABBBCCCDDD
 two:
   id: 2
