@@ -3,12 +3,14 @@
 
 <p><%= pluralize @event.rides.count, "ride" %> available.</p>
 
-<h3>Add a ride:</h3>
+<h3 id="toggle_link"><%= link_to_function 'Add a ride', "Nicely.show_ride_form()" %></h3>
+<div id="ride_form" style="display:none">
 <% form_for @ride, :url => rides_path(@event) do |f| %>
   <%= render :partial => "rides/form", :locals => { :f => f } %>
   <%= submit_tag "Add ride" %>
 <% end %>
 
 <%= error_messages_for :ride %>
+</div>
 
 <%= render :partial => "rides/ride", :collection => @event.available_rides %>
