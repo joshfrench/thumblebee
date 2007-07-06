@@ -1,6 +1,6 @@
 html {
 	background-color: #FCE9C8;
-	font: normal 14px/1.1em "Lucida Grande";
+	font: normal 14px/1.1em "Lucida Grande", "Verdana";
 	color: #333;
 }
 a {
@@ -23,6 +23,7 @@ body {
 	background: url(/images/bg_mid.gif);
 	padding: 0 20px 1.2em 20px;
 	margin: 0;
+	background-color: #FFF;
 }
 #main_top {
 	height: 10px;
@@ -113,6 +114,8 @@ h3 {
 .errors {
 	padding: 4px;
 	background-color: #FCE9C8;
+	border: 1px solid #AF9E7E;
+	margin-bottom: 1em;
 }
 .errors h3 {
 	color: #E22131;
@@ -123,11 +126,11 @@ h3 {
 	padding-bottom: 2px;
 }
 #footer {
-	margin-top: 1em;
+	width: 100%;
+	padding-top: 1em;
+	margin: 0;
 	color: #AF9E7E;
-	float: right;
+	text-align: right;
 	font-size: 10px;
-}
-.intro {
-	color: #397E3B;
+	background-color: #FCE9C8;
 }
