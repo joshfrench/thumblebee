@@ -4,6 +4,7 @@ class RidesController < ApplicationController
     @event = Event.find_by_slug(params[:event_id])
     @ride = @event.rides.build(params[:ride])
     @ride.save!
+    flash[:message] = "Thanks for posting your ride."
     redirect_to default_path(@event)
   rescue
     render :template => "events/show"
