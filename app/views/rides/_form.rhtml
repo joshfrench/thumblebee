@@ -2,6 +2,5 @@
 <p>Your email: <%= f.text_field :email %></p>
 <p>Your phone: <%= f.text_field :phone %></p>
 <p>Leaving from: <%= f.text_field :location %></p>
-<p>Leave time: <%= f.text_field :leave_at %></p>
-<p>Return time: <%= f.text_field :return_at %></p>
-<p>Seats available: <%= f.select :seats, (1..6).to_a %></p>
+<p>Seats available: <%= f.select :seats, (@ride.min_seats..6).to_a %></p>
+<p>Anything else? <%= f.text_area :comment %></p>

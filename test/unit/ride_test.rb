@@ -24,22 +24,18 @@ class RideTest < Test::Unit::TestCase
     assert !(create_ride :location => nil).valid?
   end
   
-  def test_should_require_leave_at
-    assert !(create_ride :leave_at => nil).valid?
-  end
-  
-  def test_should_require_return_at
-    assert !(create_ride :return_at => nil).valid?
-  end
-  
   def test_should_require_seats
     assert !(create_ride :seats => nil).valid?
+  end
+  
+  def test_min_seats
+    assert_equal 1, Ride.new.min_seats
+    assert_equal 0, rides(:one).min_seats
   end
   
   private
   def create_ride(options={})
     events(:one).rides.create({:driver => 'Joey Driver', :email => 'driver@vitamin-j.com',
-                 :location => "Brooklyn", :leave_at => "Saturday around noon",
-                 :return_at => "Sunday evening", :seats => 4 }.merge options )
+                 :location => "Brooklyn", :seats => 4 }.merge options )
   end
 end
