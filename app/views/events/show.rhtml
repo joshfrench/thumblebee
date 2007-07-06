@@ -1,15 +1,19 @@
 <%= render :partial => "events/header" %>
 
-<p id="toggle_link"><strong>Giving a ride?</strong> Fill out the <%= link_to_function 'add a ride', "Nicely.show_ride_form()" %> form.</p>
-<div id="ride_form" style="display:none">
+<% if 'show' == controller.action_name -%>
+	<p id="toggle_link"><strong>Giving a ride?</strong> Fill out the <%= link_to_function 'add a ride', "Nicely.show_ride_form()" %> form.</p>
+	<div id="ride_form" style="display:none">
+<% else -%>
+		<p id="toggle_link"><%= link_to 'Cancel', default_url(@event) %></p>
+	<div id="ride_form">
+<% end -%>
+<%= errors_on :ride %>
 <% form_for @ride, :url => rides_path(@event) do |f| %>
   <%= render :partial => "rides/form", :locals => { :f => f } %>
   <%= submit_tag "Add ride" %>
 <% end %>
-
-<%= error_messages_for :ride %>
+<br/>
 </div>
-
 <% if @event.available_rides.any? %>
 	<p><strong>Need a ride?</strong> Click any listing below for more details and contact information.</p>
 <% else %>

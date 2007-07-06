@@ -1,9 +1,8 @@
 <%= render :partial => "events/header" %>
 
-<p><strong>Edit your ride posting:</strong></p><br/>
+<p><strong>Edit your ride posting:</strong></p>
+<%= errors_on :ride %><br/>
 <% form_for @ride, :url => ride_path(:id => @ride.auth) do |f| %>
   <%= render :partial => "rides/form", :locals => { :f => f } %>
   <%= submit_tag "Save changes" %> <%= link_to "Cancel changes", default_path(@event) %>
 <% end %>
-
-<%= error_messages_for :ride %>

@@ -16,6 +16,7 @@ class RidesController < ApplicationController
   
   def update
     @ride = Ride.find_by_auth(params[:id])
+    @event = @ride.event
     @ride.update_attributes(params[:ride])
     @ride.save!
     flash[:message] = "Your changes have been saved." 
