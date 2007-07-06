@@ -1,0 +1,36 @@
+html {
+	background-color: #CCC;
+	font: normal 14px/1.1em "Lucida Grande";
+	color: #333;
+}
+body {
+	width: 700px;
+	padding: 0;
+	margin: 30px auto;
+	background-color: #FFF;
+}
+#main {
+	background: url(/images/bg_mid.gif);
+	padding: 0 20px;
+	margin: 0;
+}
+#main_top {
+	height: 10px;
+	margin: 0;
+	padding: 0;
+	background: url(/images/bg_top.gif);
+}
+#main_bottom {
+	height: 10px;
+	margin: 0;
+	padding: 0;
+	background: url(/images/bg_bottom.gif);
+}
+h1 {
+	font: bold 16px "Lucida Grande";
+	margin: 0 0 1em 0;
+}
+h2 {
+	font-size: 14px;
+	margin: .5em 0;
+}
