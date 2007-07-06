@@ -1,5 +1,5 @@
 <tr class="ride <%= style %>">
-	<td><h3 class="ride_header"><%= h ride.location %></h3></td><td><%= pluralize ride.seats, "passenger" %></td>
+	<td><%= image_tag "car_gold_16.gif", :style => "float:left;margin-right:4px;" %><h3 class="ride_header"><%= h ride.location %></h3></td><td><%= pluralize ride.seats, "passenger" %></td>
 </tr>
 <tr class="<%= style %>">
 	<td colspan="2">

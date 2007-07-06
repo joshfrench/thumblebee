@@ -77,7 +77,7 @@ td {
 	margin: 2px;
 }
 .hint {
-	background: url(/images/arrow.gif) 2px left no-repeat;
+	background: url(/images/arrow.gif) 1px left no-repeat;
 }
 .hint p {
 	font-size: 10px;
