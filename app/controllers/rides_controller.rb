@@ -11,6 +11,7 @@ class RidesController < ApplicationController
   
   def show
     @ride = Ride.find_by_auth(params[:id])
+    @event = @ride.event
   end
   
   def update

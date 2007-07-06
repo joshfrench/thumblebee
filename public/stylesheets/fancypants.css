@@ -75,3 +75,24 @@ td {
 	padding: 1px 3px;
 	background-color: pink;
 }
+#rides {
+	margin-top: 2em;
+	border-top: 2px solid #333;
+}
+.ride {
+	border-top: 1px solid #333;
+}
+.ride_body {
+	padding-bottom: 3px;
+}
+th {
+	background-color: #DDD;	
+	font-weight: bold;
+	padding: 4px 4px 4px 2px;
+}
+.even td {
+	background-color: #DDD;
+}
+h3 {
+	margin-bottom: .5em;
+}

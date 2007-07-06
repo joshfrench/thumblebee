@@ -1,3 +1,11 @@
-<h4 class="ride_header">Leaving from <%= h ride.location %> on <%= h ride.leave_at %>. <%= pluralize ride.seats, "seat" %> open.</h4>
-<p class="ride_body">Who's driving? <%= mail_to ride.email, h(ride.driver) %><%= " (#{h ride.phone})" unless (ride.phone.nil? || ride.phone.strip.empty?) %><br/>
-<%= "Details: #{h ride.comment}" unless (ride.comment.nil? || ride.comment.strip.empty?) %>.</p>
+<tr class="ride <%= style %>">
+	<td><h3 class="ride_header"><%= h ride.location %></h3></td><td><%= pluralize ride.seats, "passenger" %></td>
+</tr>
+<tr class="<%= style %>">
+	<td colspan="2">
+		<div class="ride_body">
+			<p><strong>Who's driving?</strong> <%= mail_to ride.email, h(ride.driver) %><%= " (#{h ride.phone})" unless (ride.phone.nil? || ride.phone.strip.empty?) %><p>
+			<p><strong>Notes:</strong> <%= h(ride.comment) unless (ride.comment.nil? || ride.comment.strip.empty?) %></p>
+		</div>
+	</td>
+</tr>
