@@ -11,7 +11,7 @@ body {
 }
 #main {
 	background: url(/images/bg_mid.gif);
-	padding: 0 20px;
+	padding: 0 20px 1.2em 20px;
 	margin: 0;
 }
 #main_top {
@@ -27,10 +27,51 @@ body {
 	background: url(/images/bg_bottom.gif);
 }
 h1 {
-	font: bold 16px "Lucida Grande";
+	font: bold 20px "Lucida Grande", "Verdana";
+	color: #404040;
 	margin: 0 0 1em 0;
+	padding: 0 0 12px 0;
+	border-bottom: 1px solid #404040;
+	position: relative;
+	width: 100%;
+}
+.event_location {
+	position: absolute;
+	right: 0px;
+	top: 6px;
+	font: italic 12px "Lucida Grande", "Verdana";
+	width: 180px;
+	text-align: right;
 }
 h2 {
 	font-size: 14px;
 	margin: .5em 0;
+}
+p {
+	line-height: 1.2em;
+	margin-bottom: .6em;
+}
+strong {
+	font-weight: bold;
+}
+.text {
+	width: 250px;
+}
+textarea {
+	width: 250px;
+	height: 100px;
+}
+td {
+	vertical-align: top;
+	padding: 1px;
+	margin: 2px;
+}
+.hint {
+	background: url(/images/arrow.gif) 2px left no-repeat;
+}
+.hint p {
+	font-size: 10px;
+	margin: 0 0 0 9px;
+	padding: 1px 3px;
+	background-color: pink;
 }

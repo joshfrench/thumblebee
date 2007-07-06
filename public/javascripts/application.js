@@ -7,7 +7,7 @@ Nicely = {
 	
 	hide_ride_form: function() {
 		Effect.toggle($('ride_form'), 'blind');
-		$('toggle_link').innerHTML = '<a href="#" onclick="Nicely.show_ride_form(); return false;">Add a ride</a>';	
+		$('toggle_link').innerHTML = '<strong>Giving a ride?</strong> Fill out the <a href="#" onclick="Nicely.show_ride_form(); return false;">add a ride</a> form.';	
 	}
 }
 

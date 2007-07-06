@@ -1,6 +1,23 @@
-<p>Your name: <%= f.text_field :driver %></p>
-<p>Your email: <%= f.text_field :email %></p>
-<p>Your phone: <%= f.text_field :phone %></p>
-<p>Leaving from: <%= f.text_field :location %></p>
-<p>Seats available: <%= f.select :seats, (@ride.min_seats..6).to_a %></p>
-<p>Anything else? <%= f.text_area :comment %></p>
+<table cellpadding="0" cellspacing="0" width="100%">
+	<tr>
+		<td width="150">My name:</td><td width="250"><%= f.text_field :driver, :class => 'text' %></td><td></td>
+	</tr>
+	<tr>
+		<td>My email:</td><td><%= f.text_field :email, :class => 'text' %></td>
+		<td rowspan="2" class="hint"><p>Please enter at least a phone number <strong>or</strong> an email address so ride-seekers can get in touch. Your personal information will be deleted after <%= @event.name %>.</p></td>
+	</tr>
+	<tr>
+		<td>My phone:</td><td><%= f.text_field :phone, :class => 'text' %></td>
+	</tr>
+	<tr>
+		<td>I am leaving from:</td><td><%= f.text_field :location, :class => 'text' %></td>
+		<td class="hint"><p>City, city and neighborhood... whatever's most useful.</p></td>
+	</tr>
+	<tr>
+		<td>I have room for:</td><td><%= f.select :seats, (@ride.min_seats..6).to_a %> passengers</td><td></td>
+	</tr>
+	<tr>
+		<td>Anything else?</td><td><%= f.text_area :comment %></td>
+		<td class="hint"><p>Anything else your passengers might need to know. This is a great place to put leave and return dates &amp; times, even if they are approximate.</p></td>
+	</tr>
+</table>
