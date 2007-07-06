@@ -47,10 +47,9 @@ h1 {
 }
 .event_location {
 	position: absolute;
-	right: 0px;
+	right: 40px;
 	top: 6px;
 	font: italic 12px "Lucida Grande", "Verdana";
-	width: 180px;
 	text-align: right;
 }
 h2 {
@@ -77,7 +76,7 @@ td {
 	margin: 2px;
 }
 .hint {
-	background: url(/images/arrow.gif) 1px left no-repeat;
+	background: url(/images/arrow.gif) no-repeat left 1px;
 }
 .hint p {
 	font-size: 10px;
