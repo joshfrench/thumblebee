@@ -1,9 +1,9 @@
-<h2><%= @event.name %></h2>
+<h1><%= @event.name %></h1>
 <p><%= @event.starts_on.to_s %>, <%= @event.location %></p>
 
 <p><%= pluralize @event.rides.count, "ride" %> available.</p>
 
-<h3 id="toggle_link"><%= link_to_function 'Add a ride', "Nicely.show_ride_form()" %></h3>
+<h2 id="toggle_link"><%= link_to_function 'Add a ride', "Nicely.show_ride_form()" %></h2>
 <div id="ride_form" style="display:none">
 <% form_for @ride, :url => rides_path(@event) do |f| %>
   <%= render :partial => "rides/form", :locals => { :f => f } %>

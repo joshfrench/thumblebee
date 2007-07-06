@@ -4,7 +4,11 @@ class Ride < ActiveRecord::Base
   has_many    :requests
   
   validates_presence_of       :driver
-  validates_format_of         :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
+  validates_format_of         :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i,
+                              :if => lambda { |r| r.phone.nil? }, 
+                              :message => "Please enter at least your phone number or email address."
+  validates_presence_of       :phone, :if => lambda { |r| r.email.nil? },
+                              :message => "Please enter at least your phone number or email address."
   validates_presence_of       :location
   validates_numericality_of   :seats, :with => /\d/
   attr_protected              :event_id
