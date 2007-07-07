@@ -33,7 +33,7 @@ ActionMailer::Base.smtp_settings = {
   :port => 25,
   :domain => "vitamin-j.com",
   :user => "josh",
-  :password => "b33omber"
+  :secret => "b33omber"
 }
 ActionMailer::Base.default_url_options[:host] = 'vitamin-j.com/rideboard'
 ExceptionNotifier.exception_recipients = %w(josh@vitamin-j.com)
