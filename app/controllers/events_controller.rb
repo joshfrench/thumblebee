@@ -14,11 +14,14 @@ class EventsController < ApplicationController
   end
   
   def show
-    @event = Event.find_by_slug(params[:id])
-    @ride = Ride.new
-    #@ride.leave_at = @event.starts_on
-    #@ride.return_at = @event.starts_on + 1
-    @ride.seats = 3
+    if @event = Event.find_by_slug(params[:id])
+      @ride = Ride.new
+      #@ride.leave_at = @event.starts_on
+      #@ride.return_at = @event.starts_on + 1
+      @ride.seats = 3
+    else
+      raise ActiveRecord::RecordNotFound
+    end
   end
   
 end
