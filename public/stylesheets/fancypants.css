@@ -71,7 +71,7 @@ td {
 	margin: 2px;
 }
 .hint {
-	background: url(../images/arrow.gif) no-repeat left 1px;
+	background: url(../images/arrow.gif) no-repeat left top;
 	border-bottom: 4px solid #FFF;
 }
 .hint p {
