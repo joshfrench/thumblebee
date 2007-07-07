@@ -121,6 +121,7 @@ end
 
 desc "Link in the production database.yml and fix permissions" 
 task :after_update_code do
+  delete "#{current_path}/tmp/sessions/*"
   run "mv #{release_path}/config/environment.rb #{release_path}/config/environment.rb~"
   run "ruby -e 'readlines.each{ |l| if( l.include?(%q(RAILS_ENV)) ) then puts l[/[^# ]+.*/] else puts l end } ' #{release_path}/config/environment.rb~ > #{release_path}/config/environment.rb "
   run "find #{release_path}/public -type d -exec chmod 0755 {} \\;"
