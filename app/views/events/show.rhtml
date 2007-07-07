@@ -2,7 +2,7 @@
 
 <%= render :partial => "events/header" %>
 
-<%= "<div class='message'>#{flash[:message]}</div>" if flash[:message] %>
+<%= "<div id='message'>#{flash[:message]}</div>" if flash[:message] %>
 
 <% if 'show' == controller.action_name -%>
 	<p id="toggle_link"><strong>Giving a ride?</strong> Fill out the <%= link_to_function 'add a ride', "Nicely.show_ride_form()" %> form.</p>
