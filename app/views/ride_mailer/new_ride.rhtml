@@ -1,16 +1,12 @@
-Hi <%= h @ride.driver %>
+Hi <%= h @ride.driver %>,
 
-You have posted a ride with the following information:
+Thanks for posting a ride to <%= h @ride.event.name %>.
 
-Departing from: <%= h @ride.location %>
-Available seats: <%= @ride.seats %>
-Extra info: <%= h @ride.comment %>
-
-To edit this information or update your available seats, use the
-following link. Please save this link, it is the only way to modify your
-post.
+To edit the details of your listing or to update your available seats (when someone requests a ride), use the following link. Please save this link, it is the only way to change your information.
 
 <%= ride_url(:event_id => @ride.event.slug, :id => @ride.auth) %>
 
 Thanks again,
 <%= h @ride.event.contact %>
+
+(If you did not post this listing, please contact rideboard@vitamin-j.com)

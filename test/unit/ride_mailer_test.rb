@@ -24,8 +24,6 @@ class RideMailerTest < Test::Unit::TestCase
     response = RideMailer.create_new_ride(@ride)
     assert_match /Josh French/, response.body
     assert_match /Joey Contact/, response.body
-    assert_match /Brooklyn/, response.body
-    assert_match /Saturday morning/, response.body
     assert_match /vitamin-j.com\/rideboard\/sampleevent\/rides/, response.body
   end
 

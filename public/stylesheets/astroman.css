@@ -15,7 +15,6 @@ h1 {
 
 h1.error {
     color: #C31701;
-    border-color: #C31701;
 }
 
 a, .message, .ride_header {

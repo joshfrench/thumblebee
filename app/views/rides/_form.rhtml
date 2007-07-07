@@ -11,13 +11,13 @@
 	</tr>
 	<tr>
 		<td>I am leaving from:</td><td><%= f.text_field :location, :class => 'text' %></td>
-		<td class="hint"><p>City; city and neighborhood; whatever's most useful.</p></td>
+		<td class="hint"><p>City; neighborhood; whatever's most useful.</p></td>
 	</tr>
 	<tr>
 		<td>I have room for:</td><td><%= f.select :seats, (@ride.min_seats..6).to_a %> passengers</td><td></td>
 	</tr>
 	<tr>
 		<td>Anything else?</td><td><%= f.text_area :comment %></td>
-		<td class="hint"><p>Anything else your passengers might need to know. This is a great place to put leave and return dates &amp; times, even if they are approximate.</p></td>
+		<td class="hint"><p>Anything else your passengers might need to know. This is a great place to put the dates &amp; times you plan to leave and return, even if they are approximate.</p></td>
 	</tr>
 </table>

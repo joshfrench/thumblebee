@@ -74,7 +74,7 @@ td {
 .hint p {
 	font-size: 10px;
 	margin: 0 0 0 9px;
-	padding: 1px 3px;
+	padding: 1px 3px 1px 4px;
 	
 }
 #rides {
@@ -114,4 +114,7 @@ h3 {
 	margin: 0;
 	text-align: right;
 	font-size: 10px;
+}
+#footer a {
+    text-decoration: none;
 }
