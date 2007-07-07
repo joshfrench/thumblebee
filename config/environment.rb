@@ -25,7 +25,6 @@ Rails::Initializer.run do |config|
 end
 
 # Include your application configuration below
-require 'sqlite3'
 require 'redgreen' unless (ENV['TM_RUBY'] || ENV['RAILS_ENV'] == 'production')
 Date::DATE_FORMATS[:default] = "%B %d, %Y"
 ActionMailer::Base.smtp_settings = {
