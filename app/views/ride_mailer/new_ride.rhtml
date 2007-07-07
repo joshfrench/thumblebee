@@ -2,10 +2,9 @@ Hi <%= h @ride.driver %>
 
 You have posted a ride with the following information:
 
-Available seats: <%= @ride.seats %>
 Departing from: <%= h @ride.location %>
-Leaving: <%= h @ride.leave_at %>
-Returning: <%= h @ride.return_at %>
+Available seats: <%= @ride.seats %>
+Extra info: <%= h @ride.comment %>
 
 To edit this information or update your available seats, use the
 following link. Please save this link, it is the only way to modify your
