@@ -25,7 +25,7 @@ Rails::Initializer.run do |config|
 end
 
 # Include your application configuration below
-require 'redgreen' unless ENV['TM_RUBY']
+require 'redgreen' unless (ENV['TM_RUBY'] || ENV['RAILS_ENV'] == 'production')
 Date::DATE_FORMATS[:default] = "%B %d, %Y"
 ActionMailer::Base.default_url_options[:host] = 'vitamin-j.com/rideboard'
 ExceptionNotifier.exception_recipients = %w(joe@schmoe.com bill@schmoe.com)

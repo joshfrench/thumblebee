@@ -126,7 +126,9 @@ task :after_update_code do
   run "ruby -e 'readlines.each{ |l| if( l.include?(%q(RAILS_ENV)) ) then puts l[/[^# ]+.*/] else puts l end } ' #{release_path}/config/environment.rb~ > #{release_path}/config/environment.rb "
   run "find #{release_path}/public -type d -exec chmod 0755 {} \\;"
   run "find #{release_path}/public -type f -exec chmod 0644 {} \\;"
-  run "chmod 0755 #{release_path}/public/dispatch.*"
+  run "chmod 0755 #{release_path}/public/dispatch.fcgi"
+  run "chmod 0755 #{release_path}/public/dispatch.cgi"
+  run "chmod 0755 #{release_path}/public/dispatch.rb"
   
   spinner
 end
