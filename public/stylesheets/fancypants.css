@@ -15,7 +15,7 @@ body {
 	margin: 30px auto;
 }
 #main {
-	background: url(/images/bg_mid.gif);
+	background: url(images/bg_mid.gif);
 	padding: 0 20px 1.2em 20px;
 	margin: 0;
 	background-color: #FFF;
@@ -24,10 +24,10 @@ body {
 	height: 10px;
 	margin: 0;
 	padding: 0;
-	background: url(/images/bg_top.gif);
+	background: url(images/bg_top.gif);
 }
 #main_bottom {
-	background: url(/images/bg_bottom.gif);
+	background: url(images/bg_bottom.gif);
 }
 h1 {
 	font: bold 20px "Lucida Grande", "Verdana";
@@ -71,7 +71,7 @@ td {
 	margin: 2px;
 }
 .hint {
-	background: url(/images/arrow.gif) no-repeat left 1px;
+	background: url(images/arrow.gif) no-repeat left 1px;
 	border-bottom: 4px solid #FFF;
 }
 .hint p {
