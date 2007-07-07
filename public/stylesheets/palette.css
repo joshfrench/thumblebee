@@ -1,8 +1,7 @@
-html, body, .message, .errors, #footer {
+html, body, #footer {
     background-color: #F6F2A8;
 }
-
-.hint, th, .even td, .errors {
+.hint, th, .even td, .errors, .message {
     background-color: #DAE4DF;
 }
 
