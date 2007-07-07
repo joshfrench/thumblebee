@@ -16,7 +16,7 @@
 
 <% form_for @ride, :url => rides_path(@event) do |f| %>
   <%= render :partial => "rides/form", :locals => { :f => f } %>
-  <%= submit_tag "Add ride" %>
+  <p><%= submit_tag "Add ride" %></p>
 <% end %>
 <br/>
 </div>
