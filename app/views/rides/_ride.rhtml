@@ -4,8 +4,14 @@
 <tr class="<%= style %>">
 	<td colspan="2">
 		<div class="ride_body">
-			<p><strong>Who's driving?</strong> <%= mail_to ride.email, h(ride.driver), :encode => 'javascript' %><%= " (#{h ride.phone})" unless (ride.phone.nil? || ride.phone.strip.empty?) %><p>
-			<p><strong>Notes:</strong> <%= h(ride.comment) unless (ride.comment.nil? || ride.comment.strip.empty?) %></p>
+			<p><strong>Who's driving?</strong> 
+			   <%= ride.email.empty? ? h(ride.driver) : mail_to(ride.email, 
+			                                            h(ride.driver), 
+			                                            :encode => 'javascript') -%>
+			   <%= " (#{h ride.phone})" unless (ride.phone.nil? || ride.phone.strip.empty?) -%><p>
+			<%- unless ride.comment.nil? || ride.comment.strip.empty? -%>
+			<p><strong>Notes:</strong> <%= h ride.comment %></p>
+			<%- end -%>
 		</div>
 	</td>
 </tr>

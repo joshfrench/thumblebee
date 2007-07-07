@@ -8,7 +8,7 @@ module ApplicationHelper
         next if msg.nil?
         # only grabs first error, hopefully you've ordered them
         # to be meaningful in your model
-        errors[att] ||= msg
+        errors[att] ||= msg unless errors.value?(msg)
       end
       error_messages = errors.map { |e,msg| content_tag(:li, msg) }.reverse.join "\n"
       out = "<div class='errors'><h3>Oops...</h3>";

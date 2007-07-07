@@ -12,7 +12,7 @@ class Ride < ActiveRecord::Base
                               :message => "Please enter a phone number or email address.",
                               :if => Proc.new { |r| r.phone.nil? || r.phone.empty? }
   validates_presence_of       :phone,
-                              :message => "Please enter a your phone number or email address.",
+                              :message => "Please enter a phone number or email address.",
                               :if => Proc.new { |r| r.email.nil? || r.email.empty? }
   validates_presence_of       :location, :message => "You left your departure location blank."
   validates_numericality_of   :seats, :with => /\d/
