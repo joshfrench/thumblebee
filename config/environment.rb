@@ -47,3 +47,4 @@ end
 require 'redgreen' unless ENV['TM_RUBY']
 Date::DATE_FORMATS[:default] = "%B %d, %Y"
 ActionMailer::Base.default_url_options[:host] = 'www.vitamin-j.com/rideboard'
+ExceptionNotifier.exception_recipients = %w(joe@schmoe.com bill@schmoe.com)
