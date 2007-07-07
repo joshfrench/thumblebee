@@ -85,7 +85,7 @@ Fx.Accordion.prototype = Object.extend(new Fx.Base(), {
 	},
 
 	showThisHideOpen: function(iToShow){
-	    Element.remove($('message'));
+	    if($('message')) { Element.remove($('message')); }
 		if (iToShow != this.previousClick || this.options.alwaysHide){
 			this.previousClick = iToShow;
 			var objObjs = {};
