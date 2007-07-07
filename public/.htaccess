@@ -25,7 +25,7 @@ RewriteEngine On
 # Example:
 #   Alias /myrailsapp /path/to/myrailsapp/public
 
-RewriteBase /
+RewriteBase /rideboard
 
 # Check for maintenance file and redirect all requests
 #  ( this is for use with Capistrano's disable_web task )
