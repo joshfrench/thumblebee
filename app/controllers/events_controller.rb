@@ -8,7 +8,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(params[:event])
     @event.save!
-    redirect_to @event
+    redirect_to default_url(@event)
   rescue
     render :action => :new
   end
@@ -16,8 +16,8 @@ class EventsController < ApplicationController
   def show
     @event = Event.find_by_slug(params[:id])
     @ride = Ride.new
-    @ride.leave_at = @event.starts_on
-    @ride.return_at = @event.starts_on + 1
+    #@ride.leave_at = @event.starts_on
+    #@ride.return_at = @event.starts_on + 1
     @ride.seats = 3
   end
   

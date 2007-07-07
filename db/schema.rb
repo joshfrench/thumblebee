@@ -2,16 +2,16 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 3) do
+ActiveRecord::Schema.define(:version => 2) do
 
   create_table "events", :force => true do |t|
-    t.column "name",      :string, :limit => 200
-    t.column "slug",      :string, :limit => 16
-    t.column "starts_on", :date
-    t.column "ends_on",   :date
-    t.column "location",  :string, :limit => 200
-    t.column "contact",   :string, :limit => 200
-    t.column "email",     :string, :limit => 200
+    t.column "name",       :string,   :limit => 200
+    t.column "slug",       :string,   :limit => 16
+    t.column "starts_on",  :date
+    t.column "location",   :string,   :limit => 200
+    t.column "contact",    :string,   :limit => 200
+    t.column "email",      :string,   :limit => 200
+    t.column "created_at", :datetime
   end
 
   create_table "requests", :force => true do |t|
@@ -24,17 +24,16 @@ ActiveRecord::Schema.define(:version => 3) do
   end
 
   create_table "rides", :force => true do |t|
-    t.column "event_id",   :integer
-    t.column "driver",     :string,   :limit => 200
-    t.column "email",      :string,   :limit => 200
-    t.column "phone",      :string,   :limit => 36
-    t.column "location",   :string
-    t.column "leave_at",   :string
-    t.column "return_at",  :string
-    t.column "seats",      :integer,  :limit => 1
-    t.column "comment",    :text
-    t.column "created_at", :datetime
-    t.column "auth",       :string,   :limit => 36
+    t.column "event_id",    :integer
+    t.column "driver",      :string,   :limit => 200
+    t.column "email",       :string,   :limit => 200
+    t.column "phone",       :string,   :limit => 36
+    t.column "location",    :string
+    t.column "seats",       :integer,  :limit => 1
+    t.column "comment",     :text
+    t.column "created_at",  :datetime
+    t.column "modified_at", :datetime
+    t.column "auth",        :string,   :limit => 36
   end
 
 end

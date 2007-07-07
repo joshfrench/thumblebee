@@ -6,8 +6,6 @@ one:
   email: josh@vitamin-j.com
   seats: 3
   location: Brooklyn
-  leave_at: Saturday morning
-  return_at: Sunday afternoon
   comment: Leaving Saturday morning, returning Sunday afternoon.
   auth: AAABBBCCCDDD
 two:
