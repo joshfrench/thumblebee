@@ -5,7 +5,7 @@
 	<td colspan="2">
 		<div class="ride_body">
 			<p><strong>Who's driving?</strong> 
-			   <%= ride.email.empty? ? h(ride.driver) : mail_to(ride.email, 
+			   <%= (ride.email.nil? || ride.email.empty?) ? h(ride.driver) : mail_to(ride.email, 
 			                                            h(ride.driver), 
 			                                            :encode => 'javascript') -%>
 			   <%= " (#{h ride.phone})" unless (ride.phone.nil? || ride.phone.strip.empty?) -%><p>

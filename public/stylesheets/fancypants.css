@@ -1,15 +1,11 @@
 html {
-	background-color: #FCE9C8;
 	font: normal 14px/1.1em "Lucida Grande", "Verdana";
 	color: #333;
 }
 a {
-	color: #397E3B;
 }
 .message {
 	font-weight: bold;
-	color: #397E3B;
-	background-color: #FCE9C8;
 	padding: 4px;
 	margin: 1.2em 0;
 }
@@ -17,7 +13,6 @@ body {
 	width: 700px;
 	padding: 0;
 	margin: 30px auto;
-	background-color: #FFF;
 }
 #main {
 	background: url(/images/bg_mid.gif);
@@ -25,21 +20,17 @@ body {
 	margin: 0;
 	background-color: #FFF;
 }
-#main_top {
+#main_top, #main_bottom {
 	height: 10px;
 	margin: 0;
 	padding: 0;
 	background: url(/images/bg_top.gif);
 }
 #main_bottom {
-	height: 10px;
-	margin: 0;
-	padding: 0;
 	background: url(/images/bg_bottom.gif);
 }
 h1 {
 	font: bold 20px "Lucida Grande", "Verdana";
-	color: #404040;
 	margin: 0 0 1em 0;
 	padding: 0 0 12px 0;
 	border-bottom: 1px solid #404040;
@@ -78,12 +69,12 @@ td {
 }
 .hint {
 	background: url(/images/arrow.gif) no-repeat left 1px;
+	border-bottom: 4px solid #FFF;
 }
 .hint p {
 	font-size: 10px;
 	margin: 0 0 0 9px;
 	padding: 1px 3px;
-	background-color: #AF9E7E;
 	
 }
 #rides {
@@ -94,31 +85,23 @@ td {
 	border-top: 1px solid #333;
 }
 .ride_header {
-	color: #397E3B;
 	cursor: pointer;
 }
 .ride_body {
 	padding-bottom: 3px;
 }
-th {
-	background-color: #AF9E7E;	
+th {	
 	font-weight: bold;
 	padding: 4px 4px 4px 2px;
-}
-.even td {
-	background-color: #AF9E7E;
 }
 h3 {
 	margin-bottom: .5em;
 }
 .errors {
 	padding: 4px;
-	background-color: #FCE9C8;
-	border: 1px solid #AF9E7E;
 	margin-bottom: 1em;
 }
 .errors h3 {
-	color: #E22131;
 	font-weight: bold;
 }
 .errors li {
@@ -129,8 +112,6 @@ h3 {
 	width: 100%;
 	padding-top: 1em;
 	margin: 0;
-	color: #AF9E7E;
 	text-align: right;
 	font-size: 10px;
-	background-color: #FCE9C8;
 }
