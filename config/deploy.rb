@@ -116,7 +116,7 @@ task :restart, :roles => :app do
 end
 
 task :spinner, :roles => :app do
-   run "rm -rf /home/#{user}/public_html/rideboard;ln -s #{current_path}/public /home/#{user}/public_html/rideboard"
+   run "rm -rf /home3/#{user}/public_html/rideboard;ln -s #{current_path}/public /home3/#{user}/public_html/rideboard"
 end
 
 desc "Link in the production database.yml and fix permissions" 
@@ -127,4 +127,6 @@ task :after_update_code do
   run "find #{release_path}/public -type d -exec chmod 0755 {} \\;"
   run "find #{release_path}/public -type f -exec chmod 0644 {} \\;"
   run "chmod 0755 #{release_path}/public/dispatch.*"
+  
+  spinner
 end
