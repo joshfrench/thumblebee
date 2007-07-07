@@ -26,7 +26,6 @@ class RideMailerTest < Test::Unit::TestCase
     assert_match /Joey Contact/, response.body
     assert_match /Brooklyn/, response.body
     assert_match /Saturday morning/, response.body
-    assert_match /Sunday afternoon/, response.body
     assert_match /vitamin-j.com\/rideboard\/sampleevent\/rides/, response.body
   end
 

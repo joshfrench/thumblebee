@@ -8,6 +8,7 @@ one:
   location: Brooklyn
   leave_at: Saturday morning
   return_at: Sunday afternoon
+  comment: Leaving Saturday morning, returning Sunday afternoon.
   auth: AAABBBCCCDDD
 two:
   id: 2

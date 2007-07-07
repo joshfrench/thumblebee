@@ -20,7 +20,7 @@ class RidesControllerTest < Test::Unit::TestCase
                       :ride => { :driver => "Joe Driver", 
                                 :email => 'joe@vitamin-j.com', 
                                 :location => "Brooklyn",
-                                :seats => "3" } }    
+                                :seats => 3 } }    
     end
             
     assert_redirected_to event_path(@event)
@@ -48,7 +48,7 @@ class RidesControllerTest < Test::Unit::TestCase
     put :update, { :event_id => @ride.event.slug, :id => @ride.auth,
                    :ride => { :driver => 'New Name', 
                               :email => 'newemail@vitamin-j.com', :seats => 1,
-                              :location => "Brooklyn", :leave_at => 'now', :return_at => 'later' } }
+                              :location => "Brooklyn" } }
     assert_equal 'New Name', @ride.reload.driver
   end
   
