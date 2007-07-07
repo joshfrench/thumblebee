@@ -24,7 +24,7 @@ set :repository, "svn+ssh://jfrench2@vitamin-j.com/home3/jfrench2/svn/apps/rideb
 
 role :web, "vitamin-j.com"
 role :app, "vitamin-j.com"
-role :db,  "db01.example.com", :primary => true
+role :db,  "vitamin-j.com", :primary => true
 
 # =============================================================================
 # OPTIONAL VARIABLES
