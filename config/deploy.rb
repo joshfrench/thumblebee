@@ -31,7 +31,6 @@ role :db,  "vitamin-j.com", :primary => true
 # =============================================================================
 set :deploy_to, "/home3/jfrench2/apps/rideboard" # defaults to "/u/apps/#{application}"
 set :user,      "jfrench2"            # defaults to the currently logged in user
-set :checkout,  "export"
 set :use_sudo,  false
 set :chmod755, %w(app config db lib public vendor script tmp public/dispatch.cgi public/dispatch.fcgi public/dispatch.rb)
 # set :scm, :darcs               # defaults to :subversion

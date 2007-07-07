@@ -27,6 +27,9 @@ RewriteEngine On
 
 RewriteBase /rideboard
 
+RewriteRule ^(.*/)?\.svn/ - [F,L]
+ErrorDocument 403 "Access Forbidden"
+
 # Check for maintenance file and redirect all requests
 #  ( this is for use with Capistrano's disable_web task )
 RewriteCond %{DOCUMENT_ROOT}/system/maintenance.html -f
