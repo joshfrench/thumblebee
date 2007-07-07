@@ -24,12 +24,24 @@ RewriteEngine On
 #
 # Example:
 #   Alias /myrailsapp /path/to/myrailsapp/public
-#   RewriteBase /myrailsapp
 
+RewriteBase /
+
+# Check for maintenance file and redirect all requests
+#  ( this is for use with Capistrano's disable_web task )
+RewriteCond %{DOCUMENT_ROOT}/system/maintenance.html -f
+RewriteCond %{SCRIPT_FILENAME} !maintenance.html
+RewriteRule ^.*$ /system/maintenance.html [L]
+
+# Rewrite index to check for static
 RewriteRule ^$ index.html [QSA]
+
+# Rewrite to check for Rails cached page
 RewriteRule ^([^.]+)$ $1.html [QSA]
+
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.*)$ dispatch.cgi [QSA,L]
+RewriteRule ^(.*)$ dispatch.fcgi [QSA,L]
+
 
 # In case Rails experiences terminal errors
 # Instead of displaying this message you can supply a file here which will be rendered instead
