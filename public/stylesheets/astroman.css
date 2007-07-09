@@ -1,4 +1,4 @@
-html, body, #footer {
+html, #main_top, #main_bottom, #footer {
     background-color: #F6F2A8;
 }
 .hint, th, .even td, .errors, #message {
