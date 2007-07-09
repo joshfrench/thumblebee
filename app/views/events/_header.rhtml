@@ -1,1 +1,1 @@
-<h1><%= @event.name %> <span class="event_location"><%= @event.starts_on.to_s %>, <%= @event.location %></span><%= image_tag "cake-topper_32.gif", :style => 'position:absolute;top:0;right:0' %></h1>
+<h1><%= @event.name %> <span class="event_location"><%= @event.starts_on.to_s :nice %>, <%= @event.location %></span><%= image_tag "cake-topper_32.gif", :style => 'position:absolute;top:0;right:0' %></h1>

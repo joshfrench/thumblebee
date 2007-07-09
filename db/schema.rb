@@ -14,15 +14,6 @@ ActiveRecord::Schema.define(:version => 2) do
     t.column "created_at", :datetime
   end
 
-  create_table "requests", :force => true do |t|
-    t.column "ride_id", :integer
-    t.column "name",    :string,  :limit => 200
-    t.column "email",   :string,  :limit => 200
-    t.column "phone",   :string,  :limit => 36
-    t.column "seats",   :integer, :limit => 1
-    t.column "comment", :text
-  end
-
   create_table "rides", :force => true do |t|
     t.column "event_id",    :integer
     t.column "driver",      :string,   :limit => 200

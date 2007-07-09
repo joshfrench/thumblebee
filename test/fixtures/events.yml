@@ -5,6 +5,7 @@ one:
   slug: sampleevent
   contact: Joey Contact
   email: eventcontact@vitamin-j.com
+  location: Ithaca, NY
   starts_on: <%= Date.today + 14 %>
 two:
   id: 2
@@ -12,4 +13,5 @@ two:
   slug: expiredevent
   contact: Joey Expire
   email: expired@vitamin-j.com
+  location: Brooklyn, NY
   starts_on: <%= Date.today - 2 %>
