@@ -50,6 +50,14 @@ class EventTest < Test::Unit::TestCase
     assert @event.available_rides.include?(@available_ride)
   end
   
+  def test_should_delete_expires
+    @expire = events(:two)
+    assert_difference Event, :count, -1 do
+      Event.delete_expires
+    end
+    assert !(Event.find(:all).include? @expire)
+  end
+  
   private
   def create_event(options={})
     Event.create({:name => "Sample Event", :slug => "samplevent",

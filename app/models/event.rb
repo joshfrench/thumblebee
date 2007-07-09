@@ -17,4 +17,8 @@ class Event < ActiveRecord::Base
     "#{self.slug}"
   end
   
+  def self.delete_expires
+    self.destroy_all "starts_on < '#{Date.today}'"
+  end
+  
 end
