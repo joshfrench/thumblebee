@@ -25,10 +25,10 @@ body {
 	height: 10px;
 	margin: 0;
 	padding: 0;
-	background: url(../images/bg_top.gif);
+	background: url(../images/bg_top.gif) no-repeat bottom center;
 }
 #main_bottom {
-	background: url(../images/bg_bottom.gif);
+	background: url(../images/bg_bottom.gif) no-repeat top center;
 }
 h1 {
 	font: bold 20px "Lucida Grande", "Verdana";
