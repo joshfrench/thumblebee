@@ -1,0 +1,26 @@
+html, #main_top, #main_bottom, #footer {
+    background-color: #DFE2E7;
+}
+.hint, th, .even td, .errors, #message {
+    background-color: #C7C8CC;
+}
+
+#footer, h1 {
+    color: #8A79AA;
+}
+
+h1 {
+    border-color: #8A79AA;
+}
+
+h1.error {
+    color: #8A79AA;
+}
+
+a, #message, .ride_header {
+    color: #8A79AA;
+}
+
+.errors h3 {
+    color: #8A79AA;
+}
