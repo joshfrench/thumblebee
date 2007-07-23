@@ -9,6 +9,8 @@ class CreateEvents < ActiveRecord::Migration
       t.column    :email,     :string,    :limit => 200
       t.column    :created_at, :datetime
     end
+    
+    add_index :events, :slug
   end
 
   def self.down

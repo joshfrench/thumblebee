@@ -14,6 +14,8 @@ ActiveRecord::Schema.define(:version => 3) do
     t.column "created_at", :datetime
   end
 
+  add_index "events", ["slug"], :name => "index_events_on_slug"
+
   create_table "requests", :force => true do |t|
     t.column "ride_id", :integer
     t.column "name",    :string,  :limit => 200
@@ -35,6 +37,9 @@ ActiveRecord::Schema.define(:version => 3) do
     t.column "modified_at", :datetime
     t.column "auth",        :string,   :limit => 36
   end
+
+  add_index "rides", ["auth"], :name => "index_rides_on_auth"
+  add_index "rides", ["event_id"], :name => "index_rides_on_event_id"
 
   create_table "sessions", :force => true do |t|
     t.column "session_id", :string

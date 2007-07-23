@@ -12,6 +12,9 @@ class CreateRides < ActiveRecord::Migration
       t.column    :modified_at, :datetime
       t.column    :auth,        :string,    :limit => 36
     end
+    
+    add_index :rides, :event_id
+    add_index :rides, :auth
   end
 
   def self.down
