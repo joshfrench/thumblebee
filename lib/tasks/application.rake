@@ -12,7 +12,7 @@ desc "Trim log files"
 task :trim_logs => [:environment] do
   log_dir = "#{RAILS_ROOT}/log"
   trim_logs = ['production.log', 'mongrel.log']
-  trim_logs.each do |log|
-    %x{ tail -10000 #{log_dir}/#{log} > #{log_dir}/tmp.log; mv -f #{log_dir}/tmp.log #{log_dir}/#{log} }
+  trim_logs.each do |logfile|
+    %x{ tail -10000 #{log_dir}/#{logfile} > #{log_dir}/tmp.log; mv -f #{log_dir}/tmp.log #{log_dir}/#{logfile} }
   end
 end
