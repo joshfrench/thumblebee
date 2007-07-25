@@ -103,15 +103,19 @@ describe Event do
   end
   
   it "should list available rides" do
-    ride = Ride.new(:seats => 0)
-    open_ride = Ride.new(:seats => 2)
+    ride = mock_model(Ride)
+    ride.stub!(:seats).and_return(0)
+    open_ride = mock_model(Ride)
+    open_ride.stub!(:seats).and_return(2)
     @event.should_receive(:rides).and_return([ride, open_ride])
     @event.available_rides.should include(open_ride)
   end
   
   it "should not list rides with no seats" do
-    ride = Ride.new(:seats => 0)
-    open_ride = Ride.new(:seats => 2)
+    ride = mock_model(Ride)
+    ride.stub!(:seats).and_return(0)
+    open_ride = mock_model(Ride)
+    open_ride.stub!(:seats).and_return(2)
     @event.should_receive(:rides).and_return([ride, open_ride])
     @event.available_rides.should_not include(ride)
   end
