@@ -4,4 +4,11 @@
 class ApplicationController < ActionController::Base
   session :session_key => '_rideboard_session_id'
   include ExceptionNotifiable
+  cache_sweeper :event_sweeper
+  helper_method :event_cache_key
+  
+  protected
+  def event_cache_key(event)
+    "#{request.host_with_port}/events/#{event.slug}"
+  end
 end

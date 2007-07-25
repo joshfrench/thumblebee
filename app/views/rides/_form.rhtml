@@ -14,7 +14,8 @@
 		<td class="hint"><p>City; neighborhood; whatever's most useful.</p></td>
 	</tr>
 	<tr>
-		<td>I have room for:</td><td><%= f.select :seats, (@ride.min_seats..6).to_a %> passengers</td><td></td>
+		<td>I have room for:</td><td><%= f.select :seats, (@ride.min_seats..6).to_a %> passengers</td>
+		<%= seat_hint_for(@ride) %>
 	</tr>
 	<tr>
 		<td>Anything else?</td><td><%= f.text_area :comment %></td>

@@ -40,10 +40,17 @@ h1 {
 }
 .event_location {
 	position: absolute;
-	right: 40px;
+	right: 0;
 	top: 6px;
 	font: italic 12px "Lucida Grande", "Verdana";
 	text-align: right;
+}
+.event_location img {
+	float: right;
+	display: inline;
+	position: relative;
+	top: -6px;
+	padding-left: 4px;
 }
 h2 {
 	font-size: 14px;

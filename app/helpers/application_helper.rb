@@ -17,4 +17,16 @@ module ApplicationHelper
       out
     end
   end
+  
+  def seat_hint_for(ride)
+    unless ride.new_record?
+      @class = ' class="hint"'
+      @text = content_tag 'p', 'Set this to 0 to hide your listing. You can change this later.'
+    end
+    "<td#{@class}>#{@text}</td>"
+  end
+  
+  def event_image(event)
+    image_tag("#{event.slug}.gif") if File.exists?(File.join(RAILS_ROOT, 'public', 'images', "#{event.slug}.gif"))
+  end
 end
