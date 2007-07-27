@@ -45,16 +45,4 @@ describe ApplicationHelper do
     @object.should_receive(:errors).and_return(@errors)
     errors_on(:object).should be_nil
   end
-  
-  it "should show a hint for a valid attribute or new record" do
-    @ride = Ride.new
-    hint_or_error_for(:ride, :email, 'This is hint text.').should match(/hint text/i)
-  end
-  
-  it "should show an error for an invalid attribute" do
-    @ride = Ride.new
-    @ride.valid? # attach some errors
-    hint_or_error_for(:ride, :email, 'This is hint text.').should equal(@ride.errors.on :email)
-  end
-  
 end

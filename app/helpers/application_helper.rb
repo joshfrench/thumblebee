@@ -18,11 +18,6 @@ module ApplicationHelper
     end
   end
   
-  def hint_or_error_for(obj, field, hint)
-    object = instance_variable_get("@#{obj}")
-    return object.errors.on(field) || hint
-  end
-  
   def seat_hint_for(ride)
     unless ride.new_record?
       @class = ' class="hint"'
