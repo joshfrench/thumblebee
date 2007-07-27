@@ -4,7 +4,10 @@ html, #main_top, #main_bottom, #footer {
 .hint, th, .even td, .errors, #message {
     background-color: #C7C8CC;
 }
-
+.error {
+	background-color: #8A79AA;
+	color: #FFFFFF;
+}
 #footer, h1 {
     color: #8A79AA;
 }

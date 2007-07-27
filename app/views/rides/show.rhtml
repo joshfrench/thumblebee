@@ -1,9 +1,8 @@
 <% @page_title = "Ride Board: Get a ride to #{@event.name}" %>
 
 <%= render :partial => "events/header" %>
-
+<%= "<div class='errors'><h3>Oops... please check your info and try again.</h3></div>" unless @ride.valid? %>
 <p><strong>Edit your ride posting:</strong></p>
-<%= errors_on :ride %><br/>
 <% form_for @ride, :url => ride_path(:id => @ride.auth) do |f| %>
   <%= render :partial => "rides/form", :locals => { :f => f } %>
   <p><%= submit_tag "Save changes" %> <%= link_to "Cancel changes", default_path(@event) %></p>

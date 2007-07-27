@@ -18,6 +18,11 @@ module ApplicationHelper
     end
   end
   
+  def hint_or_error_for(obj, field, hint)
+    object = instance_variable_get("@#{obj}")
+    return object.errors.on(field) || hint
+  end
+  
   def seat_hint_for(ride)
     unless ride.new_record?
       @class = ' class="hint"'
@@ -28,5 +33,21 @@ module ApplicationHelper
   
   def event_image(event)
     image_tag("#{event.slug}.gif") if File.exists?(File.join(RAILS_ROOT, 'public', 'images', "#{event.slug}.gif"))
+  end
+end
+
+class ActionView::Helpers::FormBuilder
+  def hint_or_error_for(field, hint)
+    @object.errors.on(field) || hint
+  end
+  
+  def hint_or_error_td_for(field, hint)
+    style = @object.errors.on(field) ? 'hint error' : 'hint'
+    "<td class=\"#{style}\"><p>#{hint_or_error_for(field, hint)}</p></td>"
+  end
+  
+  def blank_or_error_td_for(field)
+    style = @object.errors.on(field) ? ' class="hint error"' : nil
+    "<td#{style}><p>#{@object.errors.on field}</p></td>"
   end
 end

@@ -12,7 +12,7 @@
 	<div id="ride_form">
 <% end -%>
 
-<%= errors_on :ride %>
+<%= "<div class='errors'><h3>Oops... please check your info and try again.</h3></div>" if flash[:errors] %>
 
 <%- cache(event_cache_key(@event)) do -%>
 

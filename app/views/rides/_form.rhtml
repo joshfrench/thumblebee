@@ -1,17 +1,15 @@
 <table cellpadding="0" cellspacing="0" width="100%">
 	<tr>
-		<td class="label">My name:</td><td><%= f.text_field :driver, :class => 'text' %></td><td></td>
+		<td class="label">My name:</td><td><%= f.text_field :driver, :class => 'text' %></td>
+		<%= f.blank_or_error_td_for :driver %>
 	</tr>
 	<tr>
 		<td>My email:</td><td><%= f.text_field :email, :class => 'text' %></td>
-		<td rowspan="2" class="hint"><p>Please enter at least an email <strong>or</strong> a phone number so ride-seekers can get in touch. Your personal information will be deleted after <%= @event.name %>.</p></td>
-	</tr>
-	<tr>
-		<td>My phone:</td><td><%= f.text_field :phone, :class => 'text' %></td>
+		<%= f.hint_or_error_td_for :email, "Please enter a valid email. Your personal information will be deleted after #{@event.name}." %>
 	</tr>
 	<tr>
 		<td>I am leaving from:</td><td><%= f.text_field :location, :class => 'text' %></td>
-		<td class="hint"><p>City; neighborhood; whatever's most useful.</p></td>
+		<%= f.hint_or_error_td_for :location, 'City; neighborhood; whatever\'s most useful.' %>
 	</tr>
 	<tr>
 		<td>I have room for:</td><td><%= f.select :seats, (@ride.min_seats..6).to_a %> passengers</td>
