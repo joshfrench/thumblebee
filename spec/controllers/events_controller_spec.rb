@@ -59,7 +59,7 @@ describe 'A GET to /demoslug' do
   before(:each) do
     @event = mock("event")
     Event.should_receive(:find_by_slug).with('demoslug').and_return(@event)
-    
+    @event.stub!(:slug).and_return('foo')
     @ride = mock('ride')
     @ride.should_receive(:seats=).with(3)
     Ride.should_receive(:new).and_return(@ride)
@@ -73,6 +73,10 @@ describe 'A GET to /demoslug' do
   
   it "should set up a new ride" do
     assigns[:ride].should equal(@ride)
+  end
+  
+  it "should find the proper cache key" do
+    controller.send(:event_cache_key, @event).should match(/foo/)
   end
   
 end

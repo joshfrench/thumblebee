@@ -1,7 +1,6 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe ApplicationHelper do
-  
   fixtures :events
   
   it "should find an existing event image" do
@@ -45,4 +44,5 @@ describe ApplicationHelper do
     @object.should_receive(:errors).and_return(@errors)
     errors_on(:object).should be_nil
   end
+  
 end
