@@ -1,16 +1,5 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
-module EventSpecHelper
-  def valid_attributes
-    { :name => 'Sample Event',
-      :slug => 'sample',
-      :email => 'sample@vitamin-j.com',
-      :contact => 'Sample Contact',
-      :location => 'Timbuktu',
-      :starts_on => 2.weeks.from_now.to_s(:db) }
-  end
-end
-
 describe 'A GET to /new' do
   controller_name :events
   
@@ -26,7 +15,6 @@ describe 'A GET to /new' do
 end
 
 describe 'A valid POST to create' do
-  include EventSpecHelper
   controller_name :events
   
   before(:each) do

@@ -23,8 +23,7 @@ class RidesController < ApplicationController
     if @ride = Ride.find_by_auth(params[:id])
       begin
         @event = @ride.event
-        @ride.update_attributes(params[:ride])
-        @ride.save!
+        @ride.update_attributes!(params[:ride])
         flash[:message] = "Your changes have been saved." 
         redirect_to default_path(@ride.event)
       rescue
