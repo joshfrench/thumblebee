@@ -11,7 +11,12 @@ class Ride < ActiveRecord::Base
   attr_protected              :event_id
   
   def before_create
-    self.auth = Time.now.to_s.split(//).reject{ |c| c =~ /\W/ }.sort_by{ rand }.join.upcase
+    auth_list = Ride.find(:all, :select => :auth).map { |x| x.auth }
+    self.auth ||= Time.now.to_s.split(//).reject{ |c| c =~ /\W/ }.sort_by{ rand }.join.upcase
+    while auth_list.include? self.auth do
+      self.auth.succ!
+    end
+    true
   end
   
   def min_seats

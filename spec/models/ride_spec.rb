@@ -72,4 +72,15 @@ describe Ride do
     @ride.save
     @ride.auth.should_not be_nil
   end
+  
+  it "should always return a unique auth key" do
+    other_ride = mock('other-ride')
+    other_ride.stub!(:auth).and_return('1234567890ABCDEFGHIJ')
+    Ride.should_receive(:find).and_return([other_ride])
+    @ride.attributes = valid_attributes
+    @ride.auth = '1234567890ABCDEFGHIJ'
+    @ride.stub!(:event).and_return(events(:one))
+    @ride.save
+    @ride.auth.should eql('1234567890ABCDEFGHIK')
+  end
 end
