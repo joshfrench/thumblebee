@@ -19,7 +19,8 @@ class EventSweeper < ActionController::Caching::Sweeper
       event = record.event
     end
     
-    expire_fragment event_cache_key(event)
+    FileUtils.rm_rf File.expand_path("public/events/#{event.slug}.html", RAILS_ROOT)
+    FileUtils.rm_rf File.expand_path("public/#{event.slug}.html", RAILS_ROOT)
   end
   
 end

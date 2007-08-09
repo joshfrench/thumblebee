@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  caches_page :show
+  after_filter :write_cache, :only => [:show]
   
   def new
     @event = Event.new
@@ -19,6 +21,14 @@ class EventsController < ApplicationController
       @ride.seats = 3
     else
       raise ActiveRecord::RecordNotFound
+    end
+  end
+  
+  protected
+  def write_cache
+    if ActionController::Base.perform_caching
+      FileUtils.cp  File.join(RAILS_ROOT, 'public', 'events', "#{@event.slug}.html"),
+                    File.join(RAILS_ROOT, 'public', "#{@event.slug}.html")
     end
   end
   

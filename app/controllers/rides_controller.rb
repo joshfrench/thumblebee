@@ -1,4 +1,5 @@
 class RidesController < ApplicationController
+  include CacheableFlash
   
   def create
     @event = Event.find_by_slug(params[:event_id])
