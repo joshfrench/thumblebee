@@ -17,3 +17,11 @@ Flash.writeDataTo = function(name, element) {
   }
   element.innerHTML = unescape(content);
 };
+
+Flash.writeData = function(name) {
+  var content = "";
+  if(Flash.data[name]) {
+    content = '<div id="message">' + Flash.data[name].toString().gsub(/\+/, ' ') + '</div>';
+	document.write(content);
+  }
+};

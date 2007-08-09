@@ -2,11 +2,9 @@
 
 <%= render :partial => "events/header" %>
 
-
- <div id="message" class="flash flash_notice"></div>
   <script type="text/javascript">
     Flash.transferFromCookies();
-    Flash.writeDataTo('message', $('message'));
+    Flash.writeData('message');
   </script>
 
 <% if 'show' == controller.action_name -%>
