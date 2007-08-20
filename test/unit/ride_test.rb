@@ -14,11 +14,8 @@ class RideTest < Test::Unit::TestCase
     assert !(create_ride :driver => nil).valid?
   end
   
-  def test_should_require_email_or_phone
+  def test_should_require_email
     assert !(create_ride :email => nil).valid?
-    assert (create_ride :email => nil, :phone => '123 456 7890').valid?
-    assert (create_ride :email => 'josh@vitamin-j.com', :phone => nil).valid?
-    assert !(create_ride :email => nil, :phone => nil).valid?
     assert !(create_ride :email => 'josh@').valid?
     assert !(create_ride :email => 'josh at vitamin-j.com').valid?
   end
