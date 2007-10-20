@@ -45,6 +45,7 @@ set :checkout, "export"
 # =============================================================================
 # ssh_options[:keys] = %w(/path/to/my/key /path/to/another/key)
 # ssh_options[:port] = 25
+default_run_options[:pty] = true
 
 # =============================================================================
 # TASKS
