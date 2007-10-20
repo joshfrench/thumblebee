@@ -61,7 +61,7 @@ DESC
 task :backup, :roles => :db, :only => { :primary => true } do
   # the on_rollback handler is only executed if this task is executed within
   # a transaction (see below), AND it or a subsequent task fails.
-  on_rollback { delete "/tmp/dump.sql" }
+  on_rollback { run "rm /tmp/dump.sql" }
 
   run "mysqldump -u theuser -p thedatabase > /tmp/dump.sql" do |ch, stream, out|
     ch.send_data "thepassword\n" if out =~ /^Enter password:/
@@ -103,7 +103,7 @@ task :helper_demo do
   put buffer, "#{shared_path}/system/maintenance.html", :mode => 0644
   sudo "killall -USR1 dispatch.fcgi"
   run "#{release_path}/script/spin"
-  delete "#{shared_path}/system/maintenance.html"
+  run "rm #{shared_path}/system/maintenance.html"
 end
 
 # You can use "transaction" to indicate that if any of the tasks within it fail,
@@ -121,7 +121,7 @@ end
 
 desc "Link in the production database.yml and fix permissions" 
 task :after_update_code do
-  delete "#{current_path}/tmp/sessions/*"
+  run "rm #{current_path}/tmp/sessions/*"
   run "mv #{release_path}/config/environment.rb #{release_path}/config/environment.rb~"
   run "ruby -e 'readlines.each{ |l| if( l.include?(%q(RAILS_ENV)) ) then puts l[/[^# ]+.*/] else puts l end } ' #{release_path}/config/environment.rb~ > #{release_path}/config/environment.rb "
   run "find #{release_path}/public -type d -exec chmod 0755 {} \\;"
