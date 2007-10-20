@@ -11,7 +11,7 @@
 # form the root of the application path.
 
 set :application, "rideboard"
-set :repository, "svn+ssh://jfrench2@vitamin-j.com/home3/jfrench2/svn/apps/rideboard/trunk"
+set :repository, "svn+ssh://jfrench2@vitamin-j.com/home/jfrench2/svn/apps/rideboard/trunk"
 
 # =============================================================================
 # ROLES
@@ -29,10 +29,11 @@ role :db,  "vitamin-j.com", :primary => true
 # =============================================================================
 # OPTIONAL VARIABLES
 # =============================================================================
-set :deploy_to, "/home3/jfrench2/apps/rideboard" # defaults to "/u/apps/#{application}"
+set :deploy_to, "/home/jfrench2/apps/rideboard" # defaults to "/u/apps/#{application}"
 set :user,      "jfrench2"            # defaults to the currently logged in user
 set :use_sudo,  false
 set :chmod755, %w(app config db lib public vendor script tmp public/dispatch.cgi public/dispatch.fcgi public/dispatch.rb)
+set :checkout, "export"
 # set :scm, :darcs               # defaults to :subversion
 # set :svn, "/path/to/svn"       # defaults to searching the PATH
 # set :darcs, "/path/to/darcs"   # defaults to searching the PATH
@@ -115,7 +116,7 @@ task :restart, :roles => :app do
 end
 
 task :spinner, :roles => :app do
-   run "rm -rf /home3/#{user}/public_html/rideboard;ln -s #{current_path}/public /home3/#{user}/public_html/rideboard"
+   run "rm -rf /home/#{user}/public_html/rideboard;ln -s #{current_path}/public /home/#{user}/public_html/rideboard"
 end
 
 desc "Link in the production database.yml and fix permissions" 
