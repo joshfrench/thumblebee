@@ -34,6 +34,7 @@ set :user,      "jfrench2"            # defaults to the currently logged in user
 set :use_sudo,  false
 set :chmod755, %w(app config db lib public vendor script tmp public/dispatch.cgi public/dispatch.fcgi public/dispatch.rb)
 set :checkout, "export"
+set :keep_releases, 2            # teeny tiny disk space!
 # set :scm, :darcs               # defaults to :subversion
 # set :svn, "/path/to/svn"       # defaults to searching the PATH
 # set :darcs, "/path/to/darcs"   # defaults to searching the PATH
