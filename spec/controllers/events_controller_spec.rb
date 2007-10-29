@@ -44,7 +44,7 @@ describe "An invalid POST to create" do
   end
   
   it "should render events/new" do
-    response.should render_template :new
+    response.should render_template(:new)
   end
   
   it "should populate an object with errors" do

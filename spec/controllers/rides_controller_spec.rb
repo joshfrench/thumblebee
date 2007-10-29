@@ -55,7 +55,7 @@ describe "A valid POST/create" do
   end
   
   it "should set flash[:message]" do
-    flash[:message].should_not be_nil
+    cookies['flash'].should_not be_nil
   end
   
   it "should redirect to event path" do
@@ -99,7 +99,7 @@ describe "A POST to update" do
   it "with valid params should set flash" do
     Ride.should_receive(:find_by_auth).and_return(@ride)
     post :update, { :event_id => "foo", :id => 'bar', :ride => {} }
-    flash[:message].should_not be_nil
+    cookies['flash'].should_not be_nil
   end
   
   it "with valid params should redirect" do

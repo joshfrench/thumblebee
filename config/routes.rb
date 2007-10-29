@@ -1,7 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
 
   map.resources :events do |event|
-    event.resources :rides, :path_prefix => ':event_id'
+    event.resources :rides, :path_prefix => ':event_id',
+                    :name_prefix => ''
   end
   
   map.default ':id', :controller => 'events', :action => 'show'
