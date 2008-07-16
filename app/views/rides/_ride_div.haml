@@ -1,0 +1,6 @@
+%table#rides{:cellspacing=>'0', :cellpadding=>'0', :border=>'0'}
+  %tr
+    %th Leaving from
+    %th Room for
+  - @event.available_rides.each do |ride|
+    = render :partial => 'rides/ride', :locals => { :ride => ride, :style => cycle('odd', 'even')}

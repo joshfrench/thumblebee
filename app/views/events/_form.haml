@@ -1,0 +1,20 @@
+%p
+  Event Name:
+  = f.text_field :name
+%p
+  Event Slug:
+  = f.text_field :slug
+%p
+  Event Location:
+  = f.text_field :location
+%p
+  Event Date:
+  = f.calendar_date_select :starts_on, :time => false, :year_range => 1
+%p
+  Contact Name:
+  = f.text_field :contact
+%p
+  Contact Email:
+  = f.text_field :email
+  
+= submit_tag 'Save'

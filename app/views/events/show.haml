@@ -1,0 +1,35 @@
+- @page_title = "Ride Board: Get a ride to #{@event.name}"
+
+= render :partial => 'events/header'
+%script{:type=>'text/javascript'}
+  Flash.transferFromCookies();
+  Flash.writeData('message');
+  
+%p#toggle_link
+  - if 'show' == controller.action_name
+    - style = {}
+    %strong Giving a ride?
+    Fill out the
+    = link_to_function 'add a ride', 'Nicely.show_ride_form()'
+    form.
+  - else
+    - style = {:style=>'display:none'}
+    = link_to 'Cancel', default_url(@event)
+    
+#ride_form{style}
+  - if flash[:errors]
+    .errors
+      %h3 Oops... please check your info and try again.
+  - form_for @ride, :url => rides_path(@event) do |f|
+    = render :partial => 'rides/form', :locals => { :f => f }
+    %p= submit_tag "Add ride"
+  %br/
+
+%p
+  %strong Need a ride?
+  - if @event.available_rides.any?
+    Click any listing below for more details and contact information.
+  - else
+    Sorry, you'll have to check back later. No one has posted a ride yet.
+
+= render :partial => "rides/ride_div" if @event.available_rides.any?
