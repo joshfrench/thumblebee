@@ -25,7 +25,7 @@ RewriteEngine On
 # Example:
 #   Alias /myrailsapp /path/to/myrailsapp/public
 
-RewriteBase /rideboard
+# RewriteBase /rideboard
 
 RewriteRule ^(.*/)?\.svn/ - [F,L]
 ErrorDocument 403 /rideboard/403.html
