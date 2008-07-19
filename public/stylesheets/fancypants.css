@@ -79,14 +79,14 @@ td {
 	margin: 2px;
 }
 .hint {
-	background: url(../images/arrow.gif) no-repeat left top;
 	border-bottom: 4px solid #FFF;
 }
 .hint p {
+    background: url(../images/arrow.gif) no-repeat left top;
 	font-size: 10px;
 	margin: 0 0 0 9px;
-	padding: 1px 3px 1px 4px;
-	
+	padding: 2px 3px 2px 14px;
+	min-height: 13px;
 }
 #rides {
 	margin-top: 2em;

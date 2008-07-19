@@ -1,10 +1,10 @@
 html, #main_top, #main_bottom, #footer {
     background-color: #FAF7CF;
 }
-.hint, th, .even td, .errors, #message {
+.hint p, th, .even td, .errors, #message {
     background-color: #FFEAD4;
 }
-.error {
+.error p {
 	background-color: #FC4D22;
 	color: #FFFFFF;
 }
