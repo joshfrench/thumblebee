@@ -4,19 +4,20 @@
 %script{:type=>'text/javascript'}
   Flash.transferFromCookies();
   Flash.writeData('message');
-  
+
+- form_style = {:style=>'display:none'}
+
 %p#toggle_link
   - if 'show' == controller.action_name
-    - style = {}
     %strong Giving a ride?
     Fill out the
     = link_to_function 'add a ride', 'Nicely.show_ride_form()'
     form.
   - else
-    - style = {:style=>'display:none'}
+    - form_style = {}
     = link_to 'Cancel', default_url(@event)
-    
-#ride_form{style}
+
+#ride_form{form_style}
   - if flash[:errors]
     .errors
       %h3 Oops... please check your info and try again.
