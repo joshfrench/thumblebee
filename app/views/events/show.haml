@@ -20,7 +20,7 @@
 #ride_form{form_style}
   - if flash[:errors]
     .errors
-      %h3 Oops... please check your info and try again.
+      %h3 Oops! Please check your info and try again.
   - form_for @ride, :url => rides_path(@event) do |f|
     = render :partial => 'rides/form', :locals => { :f => f }
     %p= submit_tag "Add ride"

@@ -8,6 +8,7 @@ class RidesController < ApplicationController
     flash[:message] = "Thanks for posting your ride."
     redirect_to default_path(@event)
   rescue
+    @event.rides.delete(@ride)
     flash.now[:errors] = true
     render :template => "events/show"
   end

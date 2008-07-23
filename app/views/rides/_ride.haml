@@ -1,6 +1,6 @@
 %tr{:class=>"ride #{style}"}
   %td
-    = image_tag 'car_gold_16.gif', :style => "float:left;margin-right:4px;"
+    = image_tag 'car_silver_16.gif', :style => "float:left;margin-right:4px;"
     %h3.ride_header= h ride.location
   %td= pluralize ride.seats, 'passenger'
 %tr{:class=>style}
@@ -10,6 +10,7 @@
         %strong Who's driving?
         = ride.email.blank? ? h(ride.driver) : mail_to(ride.email, h(ride.driver), :encode => 'javascript')
         = h(ride.phone) unless ride.phone.blank?
-      %p
-        %strong Notes:
-        = h ride.comment
+      - unless ride.comment.blank?
+        %p
+          %strong Notes:
+          = h ride.comment
