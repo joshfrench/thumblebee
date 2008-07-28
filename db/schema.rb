@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 3) do
+ActiveRecord::Schema.define(:version => 5) do
 
   create_table "events", :force => true do |t|
     t.string   "name",       :limit => 200
@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(:version => 3) do
     t.integer  "event_id"
     t.string   "driver",      :limit => 200
     t.string   "email",       :limit => 200
-    t.string   "phone",       :limit => 36
     t.string   "location"
     t.integer  "seats",       :limit => 1
     t.text     "comment"
@@ -38,14 +37,5 @@ ActiveRecord::Schema.define(:version => 3) do
 
   add_index "rides", ["auth"], :name => "index_rides_on_auth"
   add_index "rides", ["event_id"], :name => "index_rides_on_event_id"
-
-  create_table "sessions", :force => true do |t|
-    t.string   "session_id"
-    t.text     "data"
-    t.datetime "updated_at"
-  end
-
-  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
-  add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
 
 end
