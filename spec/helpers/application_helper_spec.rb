@@ -1,6 +1,7 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe ApplicationHelper do
+  include ApplicationHelper
   fixtures :events
   
   it "should find an existing event image" do
