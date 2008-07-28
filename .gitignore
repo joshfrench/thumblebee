@@ -1,2 +1,6 @@
-db/*
+db/dev
+db/production
+db/test
 log/*
+tmp/*
+.DS_Store
