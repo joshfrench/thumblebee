@@ -68,7 +68,7 @@ describe Ride do
   
   it "should assign its own auth key" do
     @ride.attributes = valid_attributes
-    @ride.stub!(:event).and_return(events(:one))
+    @ride.stub!(:event).and_return(events(:active))
     @ride.save
     @ride.auth.should_not be_nil
   end
@@ -79,7 +79,7 @@ describe Ride do
     Ride.should_receive(:find).and_return([other_ride])
     @ride.attributes = valid_attributes
     @ride.auth = '1234567890ABCDEFGHIJ'
-    @ride.stub!(:event).and_return(events(:one))
+    @ride.stub!(:event).and_return(events(:active))
     @ride.save
     @ride.auth.should eql('1234567890ABCDEFGHIK')
   end

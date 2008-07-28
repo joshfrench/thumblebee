@@ -121,7 +121,7 @@ describe Event do
   end
   
   it "should delete expired events" do
-    expire = events(:two)
+    expire = events(:expired)
     Event.should have(2).records
     Event.delete_expires
     Event.should have(1).record
