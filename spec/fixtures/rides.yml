@@ -1,0 +1,23 @@
+available:
+  id:          1
+  event_id:    1
+  driver:      Alan Available
+  email:       alan@thumblebee.com
+  location:    Brooklyn
+  seats:       2
+  comment:     Split gas money
+  created_at:  <%= (Time.now - 7.days).to_s(:db) %>
+  modified_at: <%= (Time.now - 7.days).to_s(:db) %>
+  auth:        availableauth
+  
+full:
+  id:          2
+  event_id:    1
+  driver:      Francis Full
+  email:       francis@thumblebee.com
+  location:    Brooklyn
+  seats:       0
+  comment:     Don't touch the radio
+  created_at:  <%= (Time.now - 7.days).to_s(:db) %>
+  modified_at: <%= (Time.now - 7.days).to_s(:db) %>
+  auth:        fullauth

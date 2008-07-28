@@ -1,16 +1,17 @@
-one:
+active:
   id: 1
-  name: Sample Event
-  slug: sampleevent
-  contact: Joey Contact
-  email: eventcontact@vitamin-j.com
+  name: Active Event
+  slug: activeevent
+  contact: Alice Active
+  email: activecontact@thumblebee.com
   location: Ithaca, NY
   starts_on: <%= Date.today + 14 %>
-two:
+  
+expired:
   id: 2
   name: Expired Event
   slug: expiredevent
-  contact: Joey Expire
-  email: expired@vitamin-j.com
+  contact: Edwina Expired
+  email: expired@thumblebee.com
   location: Brooklyn, NY
   starts_on: <%= Date.today - 2 %>
