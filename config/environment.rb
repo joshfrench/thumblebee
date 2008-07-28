@@ -18,6 +18,7 @@ Rails::Initializer.run do |config|
   # Use the database for sessions instead of the file system
   # (create the session table with 'rake db:sessions:create')
   config.action_controller.session_store = :cookie_store
+  config.action_controller.session = { :session_key => "thumblebee_data", :secret => "87U402SJN31120000L122U0212020702NU84101LJS2U" }
 
   # Activate observers that should always be running
   config.active_record.observers = :ride_observer
