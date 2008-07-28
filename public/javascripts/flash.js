@@ -3,7 +3,7 @@ var Flash = new Object();
 Flash.data = {};
 
 Flash.transferFromCookies = function() {
-  var data = JSON.parse(unescape(Cookie.get("flash")));
+  var data = JSON.parse(unescape(Cookie.get("flash").replace(/\+/g, ' ')));
   if(!data) data = {};
   Flash.data = data;
   Cookie.erase("flash");
@@ -16,12 +16,4 @@ Flash.writeDataTo = function(name, element) {
     content = Flash.data[name].toString().gsub(/\+/, ' ');
   }
   element.innerHTML = unescape(content);
-};
-
-Flash.writeData = function(name) {
-  var content = "";
-  if(Flash.data[name]) {
-    content = '<div id="message">' + Flash.data[name].toString().gsub(/\+/, ' ') + '</div>';
-	document.write(content);
-  }
 };

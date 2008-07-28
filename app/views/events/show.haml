@@ -1,9 +1,10 @@
 - @page_title = "Ride Board: Get a ride to #{@event.name}"
 
 = render :partial => 'events/header'
-%script{:type=>'text/javascript'}
-  Flash.transferFromCookies();
-  Flash.writeData('message');
+#flash
+  %script{:type=>'text/javascript'}
+    Flash.transferFromCookies();
+    Flash.writeDataTo('message', 'flash');
 
 - form_style = {:style=>'display:none'}
 

@@ -2,8 +2,8 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
-  session :session_key => '_rideboard_session_id'
   include ExceptionNotifiable
+  include CacheableFlash
   cache_sweeper :event_sweeper
   helper_method :event_cache_key
   
