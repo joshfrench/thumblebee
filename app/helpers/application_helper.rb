@@ -21,7 +21,7 @@ module ApplicationHelper
   def seat_hint_for(ride)
     unless ride.new_record?
       @class = ' class="hint"'
-      @text = content_tag 'p', 'Set this to 0 to hide your listing. You can change this later.'
+      @text = content_tag 'p', 'Set this to 0 to hide your listing.'
     end
     "<td#{@class}>#{@text}</td>"
   end
