@@ -8,12 +8,12 @@
     %td.label My email:
     %td
       = f.text_field :email, :class => 'text'
-      = f.hint_or_error_td_for :email, "Please enter a valid email. Your personal information will be deleted after #{@event.name}."
+      = f.hint_or_error_td_for :email, "Your email will be anonymized."
   %tr
     %td.label I am leaving from:
     %td
       = f.text_field :location, :class => 'text'
-      = f.hint_or_error_td_for :location, "City; neighborhood; whatever's most useful."
+      = f.hint_or_error_td_for :location, "City; neighborhood; whatever's useful."
   %tr
     %td.label I have room for:
     %td

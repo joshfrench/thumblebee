@@ -1,6 +1,6 @@
 class Event < ActiveRecord::Base
   
-  has_many :rides, :dependent => :destroy
+  has_many :rides, :dependent => :destroy, :order => :location
 
   validates_presence_of   :name
   validates_presence_of   :slug

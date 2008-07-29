@@ -8,7 +8,7 @@
     .ride_body
       %p
         %strong Who's driving?
-        = ride.email.blank? ? h(ride.driver) : mail_to(ride.email, h(ride.driver), :encode => 'javascript')
+        = ride.email.blank? ? h(ride.driver) : mail_to("#{ride.anonymail}@thumblebee.com", h(ride.driver), :encode => 'javascript')
       - unless ride.comment.blank?
         %p
           %strong Notes:
