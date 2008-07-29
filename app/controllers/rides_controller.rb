@@ -4,7 +4,7 @@ class RidesController < ApplicationController
     @event = Event.find_by_slug(params[:event_id])
     @ride = @event.rides.build(params[:ride])
     @ride.save!
-    flash[:message] = "Thanks for posting your ride."
+    flash[:updated] = @ride.id
     redirect_to default_path(@event)
   rescue
     @event.rides.delete(@ride) unless @event.rides.nil?
@@ -25,7 +25,7 @@ class RidesController < ApplicationController
       begin
         @event = @ride.event
         @ride.update_attributes!(params[:ride])
-        flash[:message] = "Your changes have been saved." 
+        flash[:updated] = @ride.id
         redirect_to default_path(@ride.event)
       rescue
         render :action => :show
