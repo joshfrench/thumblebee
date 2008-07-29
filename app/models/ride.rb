@@ -11,15 +11,34 @@ class Ride < ActiveRecord::Base
   attr_protected              :event_id
   
   def before_create
-    auth_list = Ride.find(:all, :select => :auth).map { |x| x.auth }
-    self.auth ||= Time.now.to_s.split(//).reject{ |c| c =~ /\W/ }.sort_by{ rand }.join.upcase
-    while auth_list.include? self.auth do
-      self.auth.succ!
-    end
-    true
+    make_auth
+    make_anonymail
   end
   
   def min_seats
     self.new_record? ? 1 : 0
   end
+  
+  private
+    def make_auth
+      auth_list = Ride.find(:all, :select => :auth).map { |x| x.auth }
+      self.auth ||= random8
+      while auth_list.include? self.auth do
+        self.auth.succ!
+      end
+      true
+    end
+  
+    def make_anonymail
+      email_list = Ride.find(:all, :select => :anonymail).map { |x| x.anonymail }
+      self.anonymail ||= random8
+      while email_list.include? self.anonymail do
+        self.anonymail.succ!
+      end
+      true
+    end
+    
+    def random8
+      Digest::SHA1.hexdigest( Time.now.to_s.split(//).sort_by {rand}.join )[0..8].upcase
+    end
 end

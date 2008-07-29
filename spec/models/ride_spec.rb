@@ -11,7 +11,7 @@ end
 
 describe Ride do
   include RideSpecHelper
-  fixtures :events
+  fixtures :all
   
   before(:each) do
     @ride = Ride.new
@@ -74,13 +74,24 @@ describe Ride do
   end
   
   it "should always return a unique auth key" do
-    other_ride = mock('other-ride')
+    other_ride = rides(:available)
     other_ride.stub!(:auth).and_return('1234567890ABCDEFGHIJ')
-    Ride.should_receive(:find).and_return([other_ride])
+    Ride.should_receive(:find).at_least(:once).and_return([other_ride])
+    @ride.event = events(:active)
     @ride.attributes = valid_attributes
     @ride.auth = '1234567890ABCDEFGHIJ'
-    @ride.stub!(:event).and_return(events(:active))
     @ride.save
     @ride.auth.should eql('1234567890ABCDEFGHIK')
+  end
+  
+  it "should always return a unique anonymail" do
+    other_ride = rides(:available)
+    other_ride.stub!(:anonymail).and_return('1234567890ABCDEFGHIJ')
+    Ride.should_receive(:find).at_least(:once).and_return([other_ride])
+    @ride.event = events(:active)
+    @ride.attributes = valid_attributes
+    @ride.anonymail = '1234567890ABCDEFGHIJ'
+    @ride.save
+    @ride.anonymail.should eql('1234567890ABCDEFGHIK')
   end
 end
