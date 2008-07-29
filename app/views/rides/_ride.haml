@@ -1,10 +1,10 @@
 %tr{:class=>"ride #{style}"}
-  %td
+  %td{:id => "origin_#{ride.id}"}
     = image_tag 'car_silver_16.gif', :style => "float:left;margin-right:4px;"
     %h3.ride_header= h ride.location
-  %td= pluralize ride.seats, 'passenger'
-%tr{:class=>style}
-  %td{:colspan=>2}
+  %td{:id => "seats_#{ride.id}"}= pluralize ride.seats, 'passenger'
+%tr{:class=>style, :id => "details_#{ride.id}"}
+  %td{:colspan=>2, :id => "notes_#{ride.id}"}
     .ride_body
       %p
         %strong Who's driving?

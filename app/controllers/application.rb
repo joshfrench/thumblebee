@@ -3,7 +3,6 @@
 
 class ApplicationController < ActionController::Base
   include ExceptionNotifiable
-  include CacheableFlash
   cache_sweeper :event_sweeper
   helper_method :event_cache_key
   
