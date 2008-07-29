@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 5) do
+ActiveRecord::Schema.define(:version => 6) do
 
   create_table "events", :force => true do |t|
     t.string   "name",       :limit => 200
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 5) do
     t.datetime "created_at"
     t.datetime "modified_at"
     t.string   "auth",        :limit => 36
+    t.string   "anonymail",   :limit => 32
   end
 
   add_index "rides", ["auth"], :name => "index_rides_on_auth"
