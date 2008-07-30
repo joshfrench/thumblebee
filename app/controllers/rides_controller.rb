@@ -1,4 +1,5 @@
 class RidesController < ApplicationController
+  before_filter :login_required, :except => :create
   
   def create
     @event = Event.find_by_slug(params[:event_id])
@@ -33,6 +34,10 @@ class RidesController < ApplicationController
     else
       raise ActiveRecord::RecordNotFound
     end
+  end
+  
+  def authorized?
+    current_ride.auth == params[:id]
   end
   
 end

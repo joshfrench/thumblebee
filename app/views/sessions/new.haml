@@ -1,0 +1,13 @@
+- @page_title = "Ride Board: Login"
+
+= render :partial => 'events/header'
+
+- if flash[:errors]
+  .errors
+    %p Oops... please try again.
+
+%form{:method=>'post',:url=>'#'}
+  %p Please enter the email you used to post this ride:
+  %p
+    %input{:type=>'text', :name=>'email'}
+    = submit_tag 'Go'

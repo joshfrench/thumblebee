@@ -19,6 +19,10 @@ class Ride < ActiveRecord::Base
     self.new_record? ? 1 : 0
   end
   
+  def to_param
+    auth
+  end
+  
   private
     def make_auth
       auth_list = Ride.find(:all, :select => :auth).map { |x| x.auth }
