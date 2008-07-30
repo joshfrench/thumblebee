@@ -5,6 +5,4 @@
   - @event.available_rides.each do |ride|
     = render :partial => 'rides/ride', :locals => { :ride => ride, :style => cycle('odd', 'even')}
 - if flash[:updated]
-  - logger.info flash[:updated]
-  %script{:type=>'text/JavaScript'}
-    == Nicely.flash_updated_row(#{flash[:updated]});
+  %script{:type=>'text/JavaScript'}= "Nicely.highlight_row(#{flash[:updated]});"

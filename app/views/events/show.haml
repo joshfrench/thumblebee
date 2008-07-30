@@ -2,26 +2,27 @@
 
 = render :partial => 'events/header'
 
-- form_style = {:style=>'display:none'}
-
-%p#toggle_link
+%p#add_ride
   - if 'show' == controller.action_name
     %strong Giving a ride?
     Fill out the
-    = link_to_function 'add a ride', 'Nicely.show_ride_form()'
+    %a#toggle_link{:href=>'#'} add a ride
     form.
-  - else
-    - form_style = {}
-    = link_to 'Cancel', default_url(@event)
 
-#ride_form{form_style}
+#ride_form
   - if flash[:errors]
     .errors
       %h3 Oops! Please check your info and try again.
   - form_for @ride, :url => rides_path(@event) do |f|
     = render :partial => 'rides/form', :locals => { :f => f }
-    %p= submit_tag "Add ride"
+    %p
+      = submit_tag "Add ride"
+      or
+      %strong
+        = link_to('Cancel', event_path(@event), :id => 'cancel_ride')
   %br/
+- if 'show' == controller.action_name
+  %script{:type=>'text/JavaScript'} new Fx.Slide('ride_form').hide()
 
 %p
   %strong Need a ride?

@@ -1,24 +1,36 @@
 var Nicely = {};
 Nicely = {
-	show_ride_form: function() {
-		Effect.toggle($('ride_form'), 'blind');
-		$('toggle_link').innerHTML = '<a href="#" onclick="Nicely.hide_ride_form(); return false;">Cancel</a>';
-	},
-	
-	hide_ride_form: function() {
-		Effect.toggle($('ride_form'), 'blind');
-		$('toggle_link').innerHTML = '<strong>Giving a ride?</strong> Fill out the <a href="#" onclick="Nicely.show_ride_form(); return false;">add a ride</a> form.';	
-	},
-
-	flash_updated_row: function(id) {
-		Effect.multiple(['origin_'+id, 'seats_'+id, 'notes_'+id], Effect.Highlight, {speed: 0, startcolor: '#8A79AA', duration: 1});
+	highlight_row: function(id) {
+		$('rides').getElements('td.ride_'+id).highlight('#8A79AA')
 	}
-}
+};
 
-window.onload = function () {
-	accordion = new fx.Accordion(document.getElementsByClassName('ride_header'), 
-								 document.getElementsByClassName('ride_body'), 
-								{ opacity: false,
-								  duration: 250,
-								  start: false } );
-}
+window.addEvent('domready', function() {
+	var myAccordion = new Accordion($('rides'), 'h3.ride_header', 'div.ride_body', {
+		opacity: false, duration: 200, show: -1, alwaysHide: true
+	});
+	
+	var status = {
+		'true': '<strong><a href="#" id="toggle_link">Cancel</a></strong>',
+		'false': '<strong>Giving a ride?</strong> Fill out the <a href="#" id="toggle_link">add a ride</a> form.'
+	};
+	
+	var formSlider = new Fx.Slide('ride_form', { duration: 600 });
+	
+	var pSlider = new Fx.Slide('add_ride');
+  
+  if($('toggle_link')) {
+		$('toggle_link').addEvent('click', function(e){
+			e.stop();
+			pSlider.hide();
+			formSlider.toggle();
+		});
+		
+		$('cancel_ride').addEvent('click', function(e) {
+		  e.stop();
+		  formSlider.toggle();
+		  pSlider.show();
+	  });	
+  };
+	
+});
