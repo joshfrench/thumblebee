@@ -16,11 +16,11 @@ class Event < ActiveRecord::Base
   end
   
   def to_param
-    "#{self.slug}"
+    slug
   end
   
   def self.delete_expires
-    self.destroy_all "starts_on < '#{Date.today}'"
+    destroy_all "starts_on < '#{Date.today}'"
   end
   
 end
