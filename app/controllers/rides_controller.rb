@@ -4,35 +4,25 @@ class RidesController < ApplicationController
   def create
     @event = Event.find_by_slug(params[:event_id])
     @ride = @event.rides.build(params[:ride])
-    @ride.save!
-    flash[:updated] = @ride.id
-    redirect_to default_path(@event)
-  rescue
-    @event.rides.delete(@ride) unless @event.rides.nil?
-    flash.now[:errors] = true
-    render :template => "events/show"
-  end
-  
-  def show
-    if @ride = Ride.find_by_auth(params[:id])
-      @event = @ride.event
+    if @ride.save
+      flash[:updated] = @ride.id
+      redirect_to default_path(@event)
     else
-      raise ActiveRecord::RecordNotFound
+      @event.rides.delete(@ride) unless @event.rides.nil?
+      flash.now[:errors] = true
+      render :template => "events/show"
     end
   end
   
+  def show
+  end
+  
   def update
-    if @ride = Ride.find_by_auth(params[:id])
-      begin
-        @event = @ride.event
-        @ride.update_attributes!(params[:ride])
-        flash[:updated] = @ride.id
-        redirect_to default_path(@ride.event)
-      rescue
-        render :action => :show
-      end
+    if @ride.update_attributes params[:ride]
+      flash[:updated] = @ride.id
+      redirect_to default_path(@ride.event)
     else
-      raise ActiveRecord::RecordNotFound
+      render :action => 'show'
     end
   end
   

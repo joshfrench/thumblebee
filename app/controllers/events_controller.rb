@@ -9,10 +9,11 @@ class EventsController < ApplicationController
   
   def create
     @event = Event.new(params[:event])
-    @event.save!
-    redirect_to default_url(@event)
-  rescue
-    render :action => :new
+    if @event.save
+      redirect_to default_url(@event)
+    else
+      render :action => :new
+    end
   end
   
   def show
