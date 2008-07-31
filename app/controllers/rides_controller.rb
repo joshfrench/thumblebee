@@ -26,8 +26,17 @@ class RidesController < ApplicationController
     end
   end
   
-  def authorized?
-    current_ride.auth == params[:id]
-  end
+  private
+    def authorized?
+      current_ride.auth == params[:id]
+    end
   
+    def login_required
+      if @ride = Ride.find_by_auth(params[:id])
+        @event = @ride.event
+        return (logged_in? && authorized?) || access_denied
+      else
+        raise ActiveRecord::RecordNotFound
+      end
+    end
 end
