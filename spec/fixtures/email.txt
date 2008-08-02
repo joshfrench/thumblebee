@@ -1,0 +1,32 @@
+From josh@vitamin-j.com  Sat Aug  2 14:01:55 2008
+Return-Path: <josh@vitamin-j.com>
+X-Original-To: 123456@thumblebee.com
+Delivered-To: 123456@thumblebee.com
+Received: by thumblebee.com (Postfix, from userid 65534)
+        id AEB38F018C; Sat,  2 Aug 2008 14:01:55 -0400 (EDT)
+X-Spam-Checker-Version: SpamAssassin 3.2.4 (2008-01-01) on thumblebee.com
+X-Spam-Level: 
+X-Spam-Status: No, score=0.9 required=5.0 tests=AWL,SUBJ_ALL_CAPS autolearn=no
+        version=3.2.4
+Received: from mail-gx0-f28.google.com (mail-gx0-f28.google.com [209.85.217.28])
+        by thumblebee.com (Postfix) with ESMTP id BE8DEF0188
+        for <123456@thumblebee.com>; Sat,  2 Aug 2008 14:01:49 -0400 (EDT)
+Received: by gxk9 with SMTP id 9so2133883gxk.20
+        for <123456@thumblebee.com>; Sat, 02 Aug 2008 11:01:49 -0700 (PDT)
+Received: by 10.100.94.14 with SMTP id r14mr15068728anb.66.1217700109021;
+        Sat, 02 Aug 2008 11:01:49 -0700 (PDT)
+Received: from ?10.0.1.4? ( [24.90.114.112])
+        by mx.google.com with ESMTPS id 29sm3830427wrl.9.2008.08.02.11.01.48
+        (version=TLSv1/SSLv3 cipher=RC4-MD5);
+        Sat, 02 Aug 2008 11:01:48 -0700 (PDT)
+Message-Id: <65CCDC23-D824-4969-AA2F-6B833DE263C4@vitamin-j.com>
+From: Joshua Danger French <josh@vitamin-j.com>
+To: 123456@thumblebee.com
+Content-Type: text/plain; charset=US-ASCII; format=flowed
+Content-Transfer-Encoding: 7bit
+Mime-Version: 1.0 (Apple Message framework v926)
+Subject: SAMPLE EMAIL
+Date: Sat, 2 Aug 2008 14:03:20 -0400
+X-Mailer: Apple Mail (2.926)
+
+in Unix MBox format
