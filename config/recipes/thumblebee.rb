@@ -15,4 +15,5 @@ Capistrano::Configuration.instance.load do
   
   Capistrano.plugin :thumblebee, Thumblebee::CapUtil
 
+  after 'deploy', 'deploy:cleanup'
 end
