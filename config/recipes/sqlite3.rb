@@ -13,7 +13,7 @@ Capistrano::Configuration.instance.load do
       desc "Symlink production DB to shared location"
       task :symlink do
         config = thumblebee.get_db_config
-        run "ln -sf #{current_path}/#{config[:database]} #{shared_path}/#{config[:database]}"
+        run "ln -sf #{shared_path}/#{config[:database]} #{current_path}/#{config[:database]}"
       end
       after 'deploy:symlink', 'deploy:db:symlink'
       
