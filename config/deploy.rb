@@ -10,6 +10,7 @@ role :db,  application, :primary => true
 
 set :deploy_to, "/var/www/thumblebee.com"
 set :user,      "josh"
+set :runner,    "josh"
 set :keep_releases, 5 
 
 default_run_options[:pty] = true

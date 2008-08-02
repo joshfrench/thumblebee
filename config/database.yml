@@ -26,9 +26,6 @@ test:
   database: db/test
 
 production:
-    adapter: mysql
-    database: jfrench2_rideboard
-    username: jfrench2_safe
-    password: mrt41l
-    host: localhost
+    adapter: sqlite3
+    database: db/production
   
