@@ -2,7 +2,7 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
-  include ExceptionNotifiable
+  include HoptoadNotifier::Catcher
   include Authentication
   cache_sweeper :event_sweeper
   helper_method :event_cache_key
