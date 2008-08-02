@@ -20,9 +20,10 @@ end
 
 [:god, :passenger, :haml, :chronic, 
  :packet, :backupgem, { :rails => '2.1' }].each do |gem|
-if gem.is_a?(Hash)
-  name, version = gem.shift
-  depend :remote, :gem, name, version
-else
-  depend :remote, :gem, gem, '>=0'
+  if gem.is_a?(Hash)
+    name, version = gem.shift
+    depend :remote, :gem, name, version
+  else
+    depend :remote, :gem, gem, '>=0'
+  end
 end
