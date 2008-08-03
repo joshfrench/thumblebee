@@ -19,6 +19,8 @@ end
 ################
 God.watch do |w|
   w.name = 'backgroundrb'
+  w.uid = 'josh'
+  w.gid = 'josh'
   w.interval = 1.minute
   w.grace = 1.minute
   w.start = "#{RAILS_ROOT}/script/backgroundrb -e production start"
@@ -35,7 +37,7 @@ God.watch do |w|
   
   w.restart_if do |restart|
     restart.condition(:memory_usage) do |c|
-      c.above = 50.megabytes
+      c.above = 75.megabytes
       c.times = [3,5]
       c.notify = 'josh'
     end
