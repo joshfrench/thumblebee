@@ -1,7 +1,7 @@
 class MailmanWorker < BackgrounDRb::MetaWorker
   set_worker_name :mailman_worker
   def create(args = nil)
-    @mailbox_path = '/var/mail/josh'
+    @mailbox_path = '/var/mail/thumblebee'
   end
   
   def check_queue
