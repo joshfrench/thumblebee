@@ -6,7 +6,7 @@ class MailmanWorker < BackgrounDRb::MetaWorker
   
   def check_queue
     mailbox = TMail::UNIXMbox.new(@mailbox_path)
-    mailbox.each_port { |mail| Remailer.receive TMail::Mail.new(mail) }
+    mailbox.each_port { |mail| Remailer.receive TMail::Mail.new(mail).to_s }
   end
 end
 
