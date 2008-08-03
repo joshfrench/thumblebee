@@ -10,7 +10,7 @@ class Remailer < ActionMailer::Base
   end
 
   def receive(mail)
-    mail.to.scan /^(.*)@/ do |addr|
+    mail.to.first.scan /^(.*)@/ do |addr|
       if ride = Ride.find_by_anonymail(addr)
         self.class.deliver_forward(ride, mail)
       end
