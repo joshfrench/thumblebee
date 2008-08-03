@@ -11,7 +11,7 @@ class Remailer < ActionMailer::Base
 
   def receive(mail)
     if ride = Ride.find_by_anonymail(mail.to)
-      self.class.deliver_forward(ride, mail)
+      self.class.deliver_forward(ride, mail.to_s)
     end
   end
 end
