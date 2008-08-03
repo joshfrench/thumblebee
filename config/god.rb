@@ -33,8 +33,8 @@ God.watch do |w|
     end
   end
   
-  w.restart_if do |start|
-    restart_condition(:memory_usage) do |c|
+  w.restart_if do |restart|
+    restart.condition(:memory_usage) do |c|
       c.above = 50.megabytes
       c.times = [3,5]
       c.notify = 'josh'

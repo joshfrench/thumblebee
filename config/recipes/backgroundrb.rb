@@ -2,12 +2,12 @@ Capistrano::Configuration.instance.load do
   namespace :backgroundrb do
     desc "Start the backgroundrb server"
     task :start do
-      run "cd #{current_path} && ./script/backgroundrb start"
+      sudo "god start backgroundrb"
     end
     
     desc "Stop the backgroundrb server"
     task :stop do
-      run "cd #{current_path} && ./script/backgroundrb stop"
+      sudo "god stop backgroundrb"
     end
   end
 end
