@@ -6,7 +6,7 @@ class RidesController < ApplicationController
     @ride = @event.rides.build(params[:ride])
     if @ride.save
       flash[:updated] = @ride.id
-      redirect_to default_path(@event)
+      redirect_to default_path(@event, :anchor => @ride.id)
     else
       @event.rides.delete(@ride) unless @event.rides.nil?
       flash.now[:errors] = true
@@ -20,7 +20,7 @@ class RidesController < ApplicationController
   def update
     if @ride.update_attributes params[:ride]
       flash[:updated] = @ride.id
-      redirect_to default_path(@ride.event)
+      redirect_to default_path(@ride.event, :anchor => @ride.id)
     else
       render :action => 'show'
     end
