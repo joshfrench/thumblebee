@@ -21,8 +21,8 @@ God.watch do |w|
   w.name = 'backgroundrb'
   w.interval = 1.minute
   w.grace = 1.minute
-  w.start = "#{RAILS_ROOT}/script/backgroundrb start"
-  w.stop  = "#{RAILS_ROOT}/script/backgroundrb stop"
+  w.start = "#{RAILS_ROOT}/script/backgroundrb -e production start"
+  w.stop  = "#{RAILS_ROOT}/script/backgroundrb -e production stop"
   w.behavior :clean_pid_file
   w.pid_file = File.join(RAILS_ROOT, 'tmp/backgroundrb_11006.pid')
   
