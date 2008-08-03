@@ -23,10 +23,11 @@ God.watch do |w|
   w.gid = 'josh'
   w.interval = 1.minute
   w.grace = 1.minute
-  w.start = "#{RAILS_ROOT}/script/backgroundrb -e production start"
-  w.stop  = "#{RAILS_ROOT}/script/backgroundrb -e production stop"
+  # run under Ruby EE
+  w.start = "ruby-ee #{RAILS_ROOT}/script/backgroundrb -e production start"
+  w.stop  = "ruby-ee #{RAILS_ROOT}/script/backgroundrb stop"
   w.behavior :clean_pid_file
-  w.pid_file = File.join(RAILS_ROOT, 'tmp/backgroundrb_11006.pid')
+  w.pid_file = File.join(RAILS_ROOT, 'tmp/pids/backgroundrb_11006.pid')
   
   w.start_if do |start|
     start.condition(:process_running) do |c|
@@ -37,7 +38,7 @@ God.watch do |w|
   
   w.restart_if do |restart|
     restart.condition(:memory_usage) do |c|
-      c.above = 75.megabytes
+      c.above = 100.megabytes
       c.times = [3,5]
       c.notify = 'josh'
     end
