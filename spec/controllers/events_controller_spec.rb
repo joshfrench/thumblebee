@@ -71,10 +71,6 @@ describe EventsController do
       assigns[:ride].should equal(@ride)
     end
 
-    it "should find the proper cache key" do
-      controller.send(:event_cache_key, @event).should match(/foo/)
-    end
-
   end
 
   describe 'A request for a bogus slug' do

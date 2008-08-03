@@ -1,7 +1,4 @@
 window.addEvent('domready', function() {
-	rowHighlighter = function(id,color) {
-		$('rides').getElements('td.ride_'+id).highlight(color);
-	}
 
 	var myAccordion = new Accordion($('rides'), 'h3.ride_header', 'div.ride_body', {
 		opacity: false, duration: 200, show: -1, alwaysHide: true
@@ -26,3 +23,7 @@ window.addEvent('domready', function() {
   };
 	
 });
+
+rowHighlighter = function(id,color) {
+	$('rides').getElements('td.ride_'+id).highlight(color);
+}

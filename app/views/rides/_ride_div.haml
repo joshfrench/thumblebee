@@ -5,5 +5,5 @@
   - @event.available_rides.each do |ride|
     = render :partial => 'rides/ride', :locals => { :ride => ride, :style => cycle('odd', 'even')}
 - if flash[:updated]
-  %script{:type=>'text/JavaScript'}
-    = "rowHighlighter.create({argments: [#{flash[:updated]}, '#8A79AA'], delay: 250}).call()"
+  %script{:type=>'text/JavaScript'}<
+    = "rowHighlighter.create({arguments: [#{flash[:updated]}, '#8A79AA'], delay: 250}).call()"
