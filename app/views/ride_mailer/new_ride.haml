@@ -1,12 +1,13 @@
-= "Hi #{h @ride.driver},"
+= "Hi #{@ride.driver},"
 
-= "Thanks for posting a ride to #{h @ride.event.name}."
+= "Thanks for posting a ride to #{@ride.event.name}."
 
-To edit the details of your listing or to update your available seats (when someone requests a ride), use the following link. Please save this link, it is the only way to change your information.
+To edit the details of your listing or to update your available seats 
+when someone requests a ride, use the following link. Please save 
+this link, it is the only way to modify your posting.
 
 = ride_url(:event_id => @ride.event.slug, :id => @ride.auth)
 
-Thanks again,
-= h @ride.event.contact
-
-(If you did not post this listing, please contact josh@thumblebee.com)
+\------------------------------------------------------------
+= render :partial => 'shared/email_footer'
+\------------------------------------------------------------

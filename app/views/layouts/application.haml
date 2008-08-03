@@ -12,6 +12,12 @@
     #main_top
     #main
       = yield
+      %p.small
+        = "For questions about #{h @event.name}, "
+        = "please contact #{mail_to @event.email, h(@event.contact), :encode => 'javascript'}."
+        %br/
+        = "For questions or technical issues regarding Thumblebee,"
+        = "please contact #{mail_to THUMBLEBEE::ADMIN_EMAIL, THUMBLEBEE::ADMIN_EMAIL, :encode => 'javascript'}."
     #main_bottom
     #footer
-      &copy; 2008 Thumblebee.com
+      = "&copy; #{Date.today.year} Thumblebee.com"

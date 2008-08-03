@@ -4,8 +4,9 @@ class Remailer < ActionMailer::Base
     @from            = email.from.first
     @reply_to        = email.from.first
     @subject         = email.subject
-    @body['message'] = email.body
-    @body['orig_to'] = email.to.first
+    @body[:message]  = email.body
+    @body[:orig_to]  = email.to.first
+    @body[:event]    = ride.event
   end
 
   def receive(mail)

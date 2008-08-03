@@ -27,3 +27,8 @@ a, .ride_header {
 .errors h3 {
     color: #8A79AA;
 }
+
+.small {
+	border-color: #8A79AA;
+	color: #8A79AA;
+}
