@@ -4,7 +4,7 @@ Capistrano::Configuration.instance.load do
     task :start do
       sudo "god start backgroundrb"
     end
-    after 'deploy:restart', 'backgroundrb:start'
+    # after 'deploy:restart', 'backgroundrb:start'
     
     desc "Stop the backgroundrb server"
     task :stop do
@@ -13,6 +13,6 @@ Capistrano::Configuration.instance.load do
       60.times { print '.' ; sleep 1 }
       puts
     end
-    before 'deploy', 'backgroundrb:stop'
+    # before 'deploy', 'backgroundrb:stop'
   end
 end
