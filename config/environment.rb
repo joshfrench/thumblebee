@@ -25,7 +25,5 @@ Rails::Initializer.run do |config|
   
 end
 
-require 'redgreen' unless (ENV['TM_RUBY'] || ENV['RAILS_ENV'] == 'production')
-
 Date::DATE_FORMATS[:nice] = "%B %d, %Y"
 ActionMailer::Base.default_url_options[:host] = 'thumblebee.com'
