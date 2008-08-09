@@ -17,17 +17,19 @@ end
 ################
 # BACKGROUNDRB #
 ################
+yaml = File.join(RAILS_ROOT, %w(config backgroundrb.yml))
+config = YAML::load(File.read(yaml))
+
 God.watch do |w|
   w.name = 'backgroundrb'
   w.uid = 'josh'
   w.gid = 'josh'
   w.interval = 1.minute
   w.grace = 1.minute
-  # run under Ruby EE
   w.start = "#{RAILS_ROOT}/script/backgroundrb -e production start"
   w.stop  = "#{RAILS_ROOT}/script/backgroundrb stop"
   w.behavior :clean_pid_file
-  w.pid_file = File.join(RAILS_ROOT, 'tmp/pids/backgroundrb_11006.pid')
+  w.pid_file = File.join(RAILS_ROOT, "tmp/pids/backgroundrb_#{config[:backgroundrb][:port]}.pid")
   
   w.start_if do |start|
     start.condition(:process_running) do |c|
