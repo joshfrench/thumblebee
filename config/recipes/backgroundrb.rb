@@ -4,15 +4,17 @@ Capistrano::Configuration.instance.load do
     task :start do
       sudo "god start backgroundrb"
       logger.info 'Waiting for backgroundrb to start...'
-      sleep 10 while capture("find #{shared_path}/pids -name backgroundrb_11006.pid").empty?
+      bdrb = thumblebee.get_backgroundrb_config
+      sleep 10 while capture("find #{shared_path}/pids -name backgroundrb_#{bdrb[:port]}.pid").empty?
     end
     after 'deploy:restart', 'backgroundrb:start'
-    
+
     desc "Stop the backgroundrb server"
     task :stop do
       sudo "god stop backgroundrb"
       logger.info 'Waiting for backgroundrb to stop...'
-      sleep 10 while capture("find #{shared_path}/pids -name backgroundrb_11006.pid").any?
+      bdrb = thumblebee.get_backgroundrb_config
+      sleep 10 while capture("find #{shared_path}/pids -name backgroundrb_#{bdrb[:port]}.pid").any?
     end
     before 'deploy', 'backgroundrb:stop'
   end

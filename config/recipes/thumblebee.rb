@@ -10,6 +10,12 @@ Capistrano::Configuration.instance.load do
         config = YAML::load(yaml)
         HashWithIndifferentAccess.new { |hash,key| hash[key] = config[env.to_s][key] }
       end
+
+      def get_backgroundrb_config
+        yaml = File.join(File.dirname(__FILE__), %w(.. backgroundrb.yml))
+        config = YAML::load(File.read(yaml))
+        config[:backgroundrb]
+      end
     end
   end
   
