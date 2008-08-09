@@ -1,3 +1,5 @@
+require 'yaml'
+
 RAILS_ROOT = '/var/www/thumblebee.com/current'
 
 God::Contacts::Email.message_settings = {
@@ -29,7 +31,7 @@ God.watch do |w|
   w.start = "#{RAILS_ROOT}/script/backgroundrb -e production start"
   w.stop  = "#{RAILS_ROOT}/script/backgroundrb stop"
   w.behavior :clean_pid_file
-  w.pid_file = File.join(RAILS_ROOT, "tmp/pids/backgroundrb_#{config[:backgroundrb][:port]}.pid")
+  w.pid_file = File.join(RAILS_ROOT, "shared/pids/backgroundrb_#{config[:backgroundrb][:port]}.pid")
   
   w.start_if do |start|
     start.condition(:process_running) do |c|
