@@ -1,6 +1,6 @@
 set :application, "thumblebee.com"
 set :scm, :git
-set :repository, "git@thumblebee.com:rideboard.git"
+set :repository, "git@thumblebee.com:thumblebee.git"
 set :branch, "master"
 set :deploy_via, :remote_cache
 
